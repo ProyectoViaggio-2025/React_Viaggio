@@ -1,0 +1,18 @@
+.navbar .nav-link {
+  color: hsl(0, 0%, 63%); 
+  margin-right: 20px;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  color: #fff; 
+}
+
+
+.a-logo img {
+  width: 150px;
+  object-fit: cover;
+}
+
+
+
