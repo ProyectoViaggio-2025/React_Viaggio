@@ -5,7 +5,7 @@ function CardAlojamiento({ id, nombre, descripcion, imagen, seleccionado, onSele
 
   return (
     <div className="col-md-4 mb-4">
-      <div className={`card h-100 ${seleccionado ? 'border-warning' : ''}`}>
+      <div className={`card h-100 ${seleccionado ? 'seleccionada' : ''}`}>
         <img src={imagen} className="card-img-top" alt={nombre} />
         <div className="card-body">
           <h5 className="card-title">{nombre}</h5>
@@ -15,7 +15,7 @@ function CardAlojamiento({ id, nombre, descripcion, imagen, seleccionado, onSele
               Ver más
             </button>
             <button
-              className={`btn btn-sm ${seleccionado ? 'btn-secondary' : 'btn-warning'}`}
+              className={`btn btn-sm ${seleccionado ? 'btn-success' : 'btn-warning'}`}
               onClick={handleClick}
             >
               {seleccionado ? 'Seleccionado' : 'Seleccionar'}
