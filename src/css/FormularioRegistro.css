@@ -1,0 +1,76 @@
+/* Estilos específicos para el formulario de registro */
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.inputBox {
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.inputGroup input {
+  font-size: 1rem;
+  padding: 0.5em;
+  outline: none;
+  border: 2px solid rgb(200, 200, 200);
+  background-color: transparent;
+  border-radius: 20px;
+  width: 100%;
+  color: #fff;
+}
+
+.inputGroup label {
+  position: absolute;
+  left: 0;
+  padding-left: 20px;
+  padding-top: 10px;
+  margin-left: 0.5em;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  color: #ffffff63;
+}
+
+.inputGroup input:focus,
+.inputGroup input:valid {
+  border-color: rgb(250, 174, 33);
+}
+
+.inputGroup input:focus ~ label,
+.inputGroup input:valid ~ label {
+  transform: translateY(-70%) scale(1);
+  margin: 0;
+  padding: 0.4em;
+  background-color: #4b4b4b;
+  width: 40%;
+  height: 30px;
+  border-radius: 20px;
+}
+
+.btn-registrarse-contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.btn-registrarse-contenedor button {
+  padding: 5px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #eb6424;
+  color: #fff;
+  font-size: 20px;
+}
+
+.btn-registrarse-contenedor button:hover {
+  background-color: #ff9b6d;
+  color: #333333;
+  transition: 0.5s ease;
+}
+
+/* Otros estilos específicos */

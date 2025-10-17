@@ -1,0 +1,26 @@
+/* Estilos globales */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: linear-gradient(208deg, rgba(54, 52, 52, 1) 61%, rgba(235, 100, 36, 1) 100%);
+  color: #fff;
+}
+
+.registrarse-contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.registrarse {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1366px;
+  background-color: #4b4b4b;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+/* Otros estilos específicos */
