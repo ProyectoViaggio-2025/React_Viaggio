@@ -1,8 +1,12 @@
-
-import Alojamientos from "./pages/PaginaAlojamientos";
-import Destinos from "./pages/Destinos";
-import PaginaAlojamientos from "./pages/PaginaAlojamientos";
+import { Routes, Route } from 'react-router-dom';
+import PaginaAlojamientos from './pages/PaginaAlojamientos';
+import MiViaje from './pages/MiViaje';
 
 export default function App() {
-  return (<PaginaAlojamientos />)
-};
+  return (
+    <Routes>
+      <Route path="/" element={<PaginaAlojamientos />} />
+      <Route path="/miviaje" element={<MiViaje />} />
+    </Routes>
+  );
+}
