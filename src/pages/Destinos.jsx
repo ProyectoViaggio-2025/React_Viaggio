@@ -1,4 +1,6 @@
 import "../css/destinos.css";
+import Navbar from "../components/Navbar.jsx";
+import Footer from "../components/Footer.jsx";
 import { useNavigate } from "react-router-dom";
 
 import Olavarria from "../assets/destinos/Olavarria.jpg";
@@ -29,26 +31,32 @@ export default function Destinos() {
   };
 
   return (
-    <div className="columnas-imagenes-contenedor">
-      <h2>Destinos</h2>
-      <div className="columna-imagenes">
-        {destinos.map((d, i) => (
-          <div key={i} className="columna">
-            <img
-              className={d.nombre === "Olavarría" ? "columna-img-olavarria" : "columna-img"}
-              src={d.imagen}
-              alt={d.nombre}
-              style={{ cursor: d.enlace ? "pointer" : "default" }}
-              onClick={() => handleClick(d.enlace)}
-            />
+    <>
+      <Navbar />
 
-            {/* Overlay solo si no es Olavarría */}
-            {d.nombre !== "Olavarría" && <div className="overlay"></div>}
+      <div className="columnas-imagenes-contenedor">
+        <h2>Destinos</h2>
+        <div className="columna-imagenes">
+          {destinos.map((d, i) => (
+            <div key={i} className="columna">
+              <img
+                className={d.nombre === "Olavarría" ? "columna-img-olavarria" : "columna-img"}
+                src={d.imagen}
+                alt={d.nombre}
+                style={{ cursor: d.enlace ? "pointer" : "default" }}
+                onClick={() => handleClick(d.enlace)}
+              />
 
-            <p>{d.nombre}</p>
-          </div>
-        ))}
+              {/* Overlay solo si no es Olavarría */}
+              {d.nombre !== "Olavarría" && <div className="overlay"></div>}
+
+              <p>{d.nombre}</p>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+
+      <Footer />
+    </>
   );
 }

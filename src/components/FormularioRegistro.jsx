@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import '../css/FormularioRegistro.css';
+import imgRegistro from '../assets/registrarse/img-registrarse.png';
+
 
 const FormularioRegistro = () => {
   const [formData, setFormData] = useState({
@@ -68,38 +70,44 @@ const FormularioRegistro = () => {
           <div className="circle circle1"></div>
           <div className="circle circle2"></div>
           <div className="circle circle3"></div>
-          <div className="circle circle4"></div>
           <h2>Registrate</h2>
         </div>
+
         <form className="inputGroup" onSubmit={(e) => e.preventDefault()}>
-          {['nombre', 'apellido', 'email', 'contraseña', 'contraseña2'].map((field) => (
-            <div className="inputBox" key={field}>
-              <input
-                type={field.includes('contraseña') ? 'password' : 'text'}
-                id={field}
-                value={formData[field]}
-                onChange={handleChange}
-                required
-                autoComplete="off"
-              />
-              <label>{field.charAt(0).toUpperCase() + field.slice(1)}</label>
-            </div>
-          ))}
+          <div className="inputBox">
+            <input id="nombre" type="text" value={formData.nombre} onChange={handleChange} required />
+            <label>Nombre/s</label>
+          </div>
+          <div className="inputBox">
+            <input id="apellido" type="text" value={formData.apellido} onChange={handleChange} required />
+            <label>Apellido/s</label>
+          </div>
+          <div className="inputBox">
+            <input id="email" type="email" value={formData.email} onChange={handleChange} required />
+            <label>Correo electrónico</label>
+          </div>
+          <div className="inputBox">
+            <input id="contraseña" type="password" value={formData.contraseña} onChange={handleChange} required />
+            <label>Contraseña</label>
+          </div>
+          <div className="inputBox">
+            <input id="contraseña2" type="password" value={formData.contraseña2} onChange={handleChange} required />
+            <label>Confirmar contraseña</label>
+          </div>
+
           <div className="btn-registrarse-contenedor">
-            <button type="button" onClick={handleSubmit}>
-              Registrarse
-            </button>
+            <button type="button" onClick={handleSubmit}>Registrarse</button>
           </div>
         </form>
+
         <div className="a-iniciar-contenedor">
-          <a href="/">Volver a inicio</a>
-          <a className="a-iniciar" href="/login">
-            Ya tengo cuenta
-          </a>
+          <a href="/">‹ Volver a inicio</a>
+          <a className="a-iniciar" href="/login">Ya tengo cuenta ›</a>
         </div>
       </div>
+
       <div className="img-registrarse-contenedor">
-        <img src="../Imagenes/registrarse/img-registrarse.png" alt="Registro" />
+        <img src={imgRegistro} alt="Registro" />
       </div>
     </div>
   );
