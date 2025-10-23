@@ -1,45 +1,18 @@
-import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import "../css/navbar.css";
-import logo from "../assets/home/logo.svg"
-
+import Home from "../pages/Home";
 export default function Navbar() {
-  const navbarRef = useRef(null);
 
-  useEffect(() => {
-    // -------- NAVBAR SCROLL EFFECT --------
-    let lastScrollTop = 0;
-    const navbar = document.getElementById("mainNavbar");
-
-    window.addEventListener("scroll", function () {
-      const scrollTop = window.scrollY;
-
-      if (scrollTop > 50) {
-        navbar.classList.remove("bg-transparent");
-        navbar.classList.add("bg-dark");
-      } else {
-        navbar.classList.remove("bg-dark");
-        navbar.classList.add("bg-transparent");
-      }
-
-      if (scrollTop > lastScrollTop && scrollTop > 550) {
-        navbar.style.top = "-80px";
-      } else {
-        navbar.style.top = "0";
-      }
-
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-    });
-  }, []);
 
   return (
         <nav
-            className="navbar-contenedor container-fluid navbar-expand-lg navbar-dark bg-transparent fixed-top"
+            className="navbar-contenedor container-fluid navbar-expand-lg"
             id="mainNavbar"
         >
             <div className="navbar container">
-            <a className="a-logo navbar-brand" href="#">
+            <Link className="a-logo navbar-brand" to="*">
                 <img src="/src/assets/home/logo.svg" alt="logo" />
-            </a>
+            </Link>
             <button
                 className="navbar-toggler"
                 id="navbarToggler"
@@ -55,19 +28,19 @@ export default function Navbar() {
             >
                 <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <Link className="nav-link" to="/destinos">
                     Destinos
-                    </a>
+                    </Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <Link className="nav-link" to="/sobreViaggio">
                     Sobre Viaggio
-                    </a>
+                    </Link>
                 </li>
                 <li className="nav-item">
-                    <a className="btn-registrate nav-link text-white" href="#">
+                    <Link className="btn-registrate nav-link text-white" to="/register">
                     Registrarse
-                    </a>
+                    </Link>
                 </li>
                 </ul>
             </div>

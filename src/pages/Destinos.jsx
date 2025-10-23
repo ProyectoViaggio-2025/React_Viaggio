@@ -32,8 +32,6 @@ export default function Destinos() {
 
   return (
     <>
-      <Navbar />
-
       <div className="columnas-imagenes-contenedor">
         <h2>Destinos</h2>
         <div className="columna-imagenes">
@@ -55,8 +53,6 @@ export default function Destinos() {
           ))}
         </div>
       </div>
-
-      <Footer />
     </>
   );
 }

@@ -23,7 +23,6 @@ function MiViaje() {
 
   return (
     <>
-      <Navbar />
 
       <div className="container my-5">
         <h1 className="mb-4">Mi viaje</h1>
@@ -45,7 +44,6 @@ function MiViaje() {
       {mostrarMenu && <MenuOrdenar cerrarMenu={cerrarMenu} />}
 
       <BotonVolver />
-      <Footer />
     </>
   );
 }

@@ -1,11 +1,8 @@
 .navbar-contenedor {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.87);
   width: 100%;
-  position: fixed;
   top: 0;
-  z-index: 999;
-  transition: top 0.3s ease, background-color 0.3s ease;
-}
+  }
 
 .navbar {
   max-width: 1366px;

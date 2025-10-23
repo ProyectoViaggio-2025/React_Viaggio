@@ -175,7 +175,6 @@ info.classList.add("brg-info");
         setupDrop(dropZone);
 
         return () => {
-        window.removeEventListener("scroll", handleScroll);
         window.removeEventListener("scroll", parallax);
         };
     }, []);
@@ -183,7 +182,6 @@ info.classList.add("brg-info");
     // JSX ------------------------------------------------------------------------
     return (
         <>
-        <Navbar/>
         {/* HERO */}
         <div className="contenedor-inicio-info container-fluid">
             <div className="row justify-content-center align-items-center contenedor-inicio">
@@ -341,22 +339,6 @@ info.classList.add("brg-info");
             </div>
         </div>
 
-        {/* FOOTER */}
-        <footer>
-            <div className="divSucursales">
-            <p>Sucursales</p>
-            <p>Calle inventada 1234</p>
-            <p>Calle alternativa 5679</p>
-            </div>
-            <div>
-            <img src={logo} alt="Logo" className="logoFooter" />
-            </div>
-            <div className="divRedes">
-            <a href="https://www.facebook.com/" target="_blank" rel="noreferrer"><img src={facebook} alt="Facebook" className="logosRedes" /></a>
-            <a href="https://x.com/" target="_blank" rel="noreferrer"><img src={twitter} alt="Twitter" className="logosRedes" /></a>
-            <a href="https://www.instagram.com/" target="_blank" rel="noreferrer"><img src={instagram} alt="Instagram" className="logosRedes" /></a>
-            </div>
-        </footer>
         </>
     );
 }
