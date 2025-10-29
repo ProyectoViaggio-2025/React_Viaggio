@@ -175,7 +175,6 @@ info.classList.add("brg-info");
         setupDrop(dropZone);
 
         return () => {
-        window.removeEventListener("scroll", handleScroll);
         window.removeEventListener("scroll", parallax);
         };
     }, []);
@@ -183,7 +182,6 @@ info.classList.add("brg-info");
     // JSX ------------------------------------------------------------------------
     return (
         <>
-        <Navbar/>
         {/* HERO */}
         <div className="contenedor-inicio-info container-fluid">
             <div className="row justify-content-center align-items-center contenedor-inicio">
@@ -237,36 +235,93 @@ info.classList.add("brg-info");
             </div>
         </div>
 
-        {/* PARALLAX */}
-        <div className="parallax">
-            <section className="sec1">
-            <h2 className="mx-5 h2-pag2" id="parallax-texto">
-                VIAGGIO MI LUGAR - VIAGGIO TU LUGAR - VIAGGIO NUESTRO LUGAR -
-            </h2>
-            </section>
-            <div className="conte">
+        {/*ACORDEON MOBILE PAG 1*/}
+        <div className="acordeon-contenedor accordion container" id="accordionExample">
+            <div className="accordion-item">
+                <h2 className="accordion-header">
+                <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    Iglesia San Jose 
+                </button>
+                </h2>
+                <div id="collapseOne" className="accordion-collapse collapse img-acordeon-container" data-bs-parent="#accordionExample">
+                    <img src={iglesiaSanJose} className="img-fluid" alt=""/>
+                <div className="accordion-body">
+                    <strong>Iglesia principal de la ciudad</strong> , punto de referencia histórico y religioso, con su arquitectura neogótica, declarado como patrimonio histórico local.
+                </div>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <h2 className="accordion-header">
+                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    La Máxima (Reserva Natural Municipal)
+                </button>
+                </h2>
+                <div id="collapseTwo" className="accordion-collapse collapse img-acordeon-container" data-bs-parent="#accordionExample">
+                    <img src={laMaxima} className="img-fluid" alt=""/>
+                <div className="accordion-body">
+                    <strong>La Máxima,</strong> Fauna local (Ciervos, aves, reptiles). Áreas verdes, juegos infantiles, parrilas.
+                    Senderos para caminar y espacios recreativos.
+                </div>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <h2 className="accordion-header">
+                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Museo Hermanos Emiliozzi
+                </button>
+                </h2>
+                <div id="collapseThree" className="accordion-collapse collapse img-acordeon-container" data-bs-parent="#accordionExample">
+                    <img src={museoEmiliozzi} className="img-fluid" alt=""/>
+                <div className="accordion-body">
+                    <strong>Hnos Emiliozzi</strong> los corredos Juan y Dante Emiliozzi, íconos del automovilismo argentino.
+                            ubicaco en su antiguo taller. Autos originales (como la "Galera"), trofeos, herrmientas y documentos. Patrimonio automovilístico nacional.
+                </div>
+                </div>
+            </div>
+
+            <div className="accordion-item">
+                <h2 className="accordion-header">
+                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Parque Mitre
+                </button>
+                </h2>
+                <div id="collapseFour" className="accordion-collapse collapse img-acordeon-container" data-bs-parent="#accordionExample">
+                    <img src={parqueMitre} className="img-fluid" alt=""/>
+                <div className="accordion-body">
+                    <strong>Parque Mitre </strong>Lugar de encuentro para caminatas, ferias y eventos, principal pulmón verde urbano y punto social de Olavarria, puentes, juegos y pista para correr o andar en bici
+                </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    {/* PAG 2*/}
+    <div className="parallax">
+
+
+        {/*SOBRE VIAGGIO*/}
+        <div className="conte">
             <div className="casa-contenedor container-fluid bg-dark">
-                <div className="info">
-                <div className="info-h3-p">
-                    <h3>¡Hola! Esto es Viaggio</h3>
-                    <hr className="hr-sobreviaggio" />
-                    <p>
-                    Viaggio es una guía digital pensada para que descubras lo mejor de
-                    <strong> Olavarría</strong>.
-                    </p>
+                <div className="info casi">
+                    <div className="info-h3-p">
+                        <h3>HOLA! ESTO ES VIAGGIO</h3>
+                        <hr className="hr-sobreviaggio"/>
+                        <p>Viaggio es una guía digital pensada para que descubras los mejor de <strong>Olavarría</strong> de forma simple, visual y auténtica.<br/>Reunimos los rincones hitóricos, los espacios verdes, las experiencias culturales y tambien <strong>Los mejores alojamientos</strong>, para que puedas planear tu viaje completo desde un solo lugar.</p>
+                        <a className="a-boton-comenzar" href="./paginas/sobreViaggio.html">
+                        <button id="btn-conocerMas">Conocer más</button>
+                        </a>
+                        
+                    </div>
                 </div>
                 <div className="ilustracion-contenedor">
-                    <img src={ilustracionInicio} alt="Ilustración inicio" />
-                </div>
+                        <img src={ilustracionInicio} alt=""/>
                 </div>
             </div>
-            </div>
-            <section className="sec2">
-            <h2 className="mx-5 h2-pag2" id="parallax-texto2">
-                VIAGGIO MI LUGAR - VIAGGIO TU LUGAR - VIAGGIO NUESTRO LUGAR -
-            </h2>
-            </section>
         </div>
+    </div>
+
+
 
         {/* MAPA */}
         <div className="mapa-contenedor">
@@ -321,15 +376,15 @@ info.classList.add("brg-info");
             <div className="carrusel">
             <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
                 <div className="carousel-inner">
-                <div className="carousel-item active">
-                    <img src={centroCultural} className="d-block w-100" alt="Centro Cultural" />
-                </div>
-                <div className="carousel-item">
-                    <img src={mitre} className="d-block w-100" alt="Parque Mitre" />
-                </div>
-                <div className="carousel-item">
-                    <img src={parqueHeliosE} className="d-block w-100" alt="Helios E." />
-                </div>
+                    <div className="carousel-item active ">
+                        <img src={centroCultural} className="d-block w-100" alt="Centro Cultural" />
+                    </div>
+                    <div className="carousel-item">
+                        <img src={mitre} className="d-block w-100" alt="Parque Mitre" />
+                    </div>
+                    <div className="carousel-item">
+                        <img src={parqueHeliosE} className="d-block w-100" alt="Helios E." />
+                    </div>
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                 <span className="carousel-control-prev-icon"></span>
@@ -341,22 +396,6 @@ info.classList.add("brg-info");
             </div>
         </div>
 
-        {/* FOOTER */}
-        <footer>
-            <div className="divSucursales">
-            <p>Sucursales</p>
-            <p>Calle inventada 1234</p>
-            <p>Calle alternativa 5679</p>
-            </div>
-            <div>
-            <img src={logo} alt="Logo" className="logoFooter" />
-            </div>
-            <div className="divRedes">
-            <a href="https://www.facebook.com/" target="_blank" rel="noreferrer"><img src={facebook} alt="Facebook" className="logosRedes" /></a>
-            <a href="https://x.com/" target="_blank" rel="noreferrer"><img src={twitter} alt="Twitter" className="logosRedes" /></a>
-            <a href="https://www.instagram.com/" target="_blank" rel="noreferrer"><img src={instagram} alt="Instagram" className="logosRedes" /></a>
-            </div>
-        </footer>
         </>
     );
 }

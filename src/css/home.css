@@ -1,9 +1,6 @@
 /* Fondo de la página */
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
-body {
-    background-color: #dfdfdf79;
-}
 
 * {
     margin: 0;
@@ -17,45 +14,23 @@ body {
 }
 
 
-/* Barra de navegación */
-.navbar-contenedor {
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 100%;
-}
 
-.navbar {
-    max-width: 1366px;
-}
-
-.navbar-ul-contenedor ul{
-    gap: 30px;
-}
-
-#mainNavbar {
-    transition: background-color 0.3s ease;
-}
-
-.a-logo img {
-    width: 150px;
-    object-fit: cover;
-}
 
 /* Botón "Comenzar" */
 .btn-comenzar {
     background-color: #EB6424;
     color: #fff;
-    border: none;
+    border: 2px solid #d86f3f;
     border-radius: 10px;
     transition: 0.3s;
     position: relative;
     z-index: 2;
+    padding: 5px;
 }
 
 .btn-comenzar:hover {
-    border: 5px solid #BABD8D;
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: #d86f3f;
-    color: black;
 }
 
 .boton-contenedor {
@@ -78,10 +53,7 @@ body {
 
 
 /* Ajuste del botón "Registrarse" */
-.nav-link.btn-warning {
-    border-radius: 5px;
-    padding: 8px 16px;
-}
+
 h1, p {
     color: white;
 }
@@ -92,7 +64,7 @@ h1, p {
 }
 
 .contenedor-inicio-info {
-    background-image: url(../Imagenes/home/img-svg-inicio.svg);
+    background-image: url(../assets/home/img-svg-inicio.svg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -127,7 +99,7 @@ h1, p {
     display: flex;
     gap: 40px;
     padding-top: 70px;
-    background-image: url(../Imagenes/home/lineas-grisezx.svg);
+    background-image: url(../assets/home/lineas-grisezx.svg);
     border-left: 4px solid #BABD8D;
     border-right: 4px solid #BABD8D;
     border-bottom: 4px solid #BABD8D;
@@ -137,6 +109,7 @@ h1, p {
 
     background-size: cover;
     border-radius: 0px 0px 20px 20px;
+
 }
 
 
@@ -156,6 +129,7 @@ h1, p {
 .seccion-texto p {
     color: #555;
     font-size: 20px;
+    font-weight: 500;
 }
 
 
@@ -336,70 +310,13 @@ h1, p {
     color: #EB6424;
 }
 
-/*parallax*/
-.sec1 {
-    background: url(../Imagenes/home/img-parallax.png);
-    background-position: bottom center;
-    background-size: cover;
-    background-attachment: fixed;
-    position: relative;
-    overflow: hidden;
-}
-.sec1::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    -webkit-backdrop-filter: blur(4px);
-    backdrop-filter: blur(4px);
-    z-index: -1;
-}
-.sec1::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 120px;
-    background: linear-gradient(to bottom, #dfdfdf79 0%, transparent 100%);
-}
 
 
-
-.sec2 {
-    background: url(../Imagenes/home/img-parallax.png);
-    background-position: bottom center;
-    background-size: cover;
-    background-attachment: fixed;
-    position: relative;
-    overflow: hidden;
-
-}
-.sec2::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    -webkit-backdrop-filter: blur(4px);
-    backdrop-filter: blur(4px);
-    z-index: -1;
-}
-.sec2::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 120px;
-    background: linear-gradient(to bottom, transparent 10%, #dfdfdf79 100%);
-}
 
 
 section {
+            background-color: #dfdfdf79;
+
     width: 100%;
     height: 40vh;
     transform-style: preserve-3d;
@@ -414,7 +331,6 @@ section {
 .h2-pag2 {
     font-size: 4rem;
     text-align: center;
-    position: absolute;
     white-space: nowrap;
     width: max-content;
     will-change: transform;
@@ -422,11 +338,13 @@ section {
 }
 
 
-
-.parallax {
-    padding-top: 100px;
+.img-acordeon-container {
+    display: flex;
 }
 
+.img-fluid {
+    width: 500px;
+}
 
 /*PAGINA 2*/
 .conte {
@@ -434,12 +352,13 @@ section {
 }
 
 .casa-contenedor {
+    
+    display: flex;
     width: 100%;
     height: 400px;
     max-width: 1366px;
     padding: 4rem;
     margin-top: 100px;
-    margin-bottom: 100px;
 }
 
 .hr-sobreviaggio {
@@ -450,27 +369,26 @@ section {
 
 .info {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
     width: 100%;
-    height: 100%;
 }
 
 .info h3, p {
     color: white;
 }
 
-.ilustracion-contenedor {
+.info-h3-p {
+    width: 90%;
+}
+
+.ilustracion-contenedor{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-
 .ilustracion-contenedor img{
-    width: 500px;
-    object-fit: contain;
+    width: 400px;
+    object-fit: cover;
 }
 
 .a-boton-comenzar button{
@@ -488,14 +406,13 @@ section {
 /*MAPA*/
 .mapa-contenedor {
     width: 100%;
-    padding: 4rem;
+    padding: 150px 100px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #dfdfdf79;
     background-image: url(../Imagenes/home/lineas2.png);
     background-size: 100% 100%;
-    height: 100%;
 }
 
 
@@ -753,20 +670,19 @@ section {
     display: flex;
     flex-direction: column;
     width: 1100px;
-    height: 600px;
     padding: 10px;
     background: transparent;
     align-content: center;
     justify-content: center;
 }
 
+
 .carousel-item img{
     border-radius: 20px;
-}
-
-.img-carousel-contenedor img {
+    max-height: 500px;
     object-fit: cover;
 }
+
 
 aside {
     width: 400px;
@@ -1005,7 +921,7 @@ footer {
 
     .ilustracion-contenedor img {
         object-fit: contain;
-        width: 400px;
+        width: 100px;
     }
 
 
@@ -1081,7 +997,7 @@ footer {
         font-size: 12px;
     } 
 
-    .ilustracion-contenedor img{
+    .ilustracion-contenedor > img{
         object-fit: contain;
         width: 200px;
     }

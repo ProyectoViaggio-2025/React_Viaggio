@@ -1,0 +1,28 @@
+.perfil-header {
+  position: relative;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.perfil-foto img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #333;
+}
+
+.nav-tabs .nav-link {
+  font-weight: bold;
+}
+
+.card {
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.navbar .dropdown-toggle img {
+  object-fit: cover;
+  border: 2px solid #fff;
+}

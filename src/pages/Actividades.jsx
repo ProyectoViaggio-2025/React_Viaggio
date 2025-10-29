@@ -93,7 +93,6 @@
 
     return (
         <main>
-        <Navbar />
 
         {/* Título y filtro */}
         <div className="titulo">
@@ -161,7 +160,6 @@
             </a>
         </div>
 
-        <Footer />
         </main>
     );
     }

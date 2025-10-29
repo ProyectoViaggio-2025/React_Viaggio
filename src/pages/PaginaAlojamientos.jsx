@@ -56,8 +56,6 @@ function PaginaAlojamientos() {
 
   return (
     <>
-      <Navbar />
-
       <div
         style={{
           backgroundImage: `url(${fondoAlojamientos})`,
@@ -98,8 +96,6 @@ function PaginaAlojamientos() {
           <ActividadesBoton visible={alojamientoSeleccionado != null} />
         </div>
       </div>
-
-      <Footer />
     </>
   );
 }
