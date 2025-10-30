@@ -1,26 +1,26 @@
-/* Fondo general con degradado */
-.registrarse-contenedor {
+.registro-contenedor {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: linear-gradient(135deg, #d34d05, #232323);
+  min-height: 100vh; 
+  background: linear-gradient(208deg, rgba(54, 52, 52, 1) 61%, rgba(235, 100, 36, 1) 100%);
+  padding: 20px; 
+  box-sizing: border-box;
 }
 
-/* Contenedor principal del formulario + imagen */
-.registrarse {
+.registro-contenedor .registrarse {
   display: flex;
   flex-direction: row;
   background-color: #3b3b3b;
   border-radius: 20px;
   overflow: hidden;
   width: 1100px;
+  max-width: 100%; 
   height: 550px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Panel izquierdo (formulario) */
-.registrarse-inputs {
+.registro-contenedor .registrarse-inputs {
   width: 55%;
   padding: 30px 50px;
   display: flex;
@@ -29,41 +29,40 @@
   color: #fff;
 }
 
-/* Título con circulitos */
-.circle-contenedor {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.circle {
-  width: 10px;
-  height: 10px;
-  background-color: #ff6a00;
-  border-radius: 50%;
-}
-
-.circle1 { width: 25px; height: 25px; }
-.circle2 { width: 8px; height: 8px; }
-.circle3 { width: 12px; height: 12px; }
-
-.circle-contenedor h2 {
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-/* Inputs */
-.inputGroup {
+.registro-contenedor .circle-contenedor {
+  position: relative;
   width: 100%;
 }
 
-.inputBox {
+.registro-contenedor .circle {
+  position: absolute;
+  background-color: #eb6424;
+  border-radius: 50%;
+}
+
+.registro-contenedor .circle1 { width: 15px; height: 15px; top: 40px; left: 10px; }
+.registro-contenedor .circle2 { width: 25px; height: 25px; top: 60px; left: 40px; }
+.registro-contenedor .circle3 { width: 10px; height: 10px; top: 15px; left: 30px; }
+.registro-contenedor .circle4 { width: 6px; height: 6px; top: 20px; left: 60px; }
+
+.registro-contenedor .circle-contenedor h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.registro-contenedor .inputGroup {
+  width: 100%;
+}
+
+.registro-contenedor .inputBox {
   position: relative;
   margin-bottom: 20px;
 }
 
-.inputBox input {
+.registro-contenedor .inputBox input {
   width: 100%;
   padding: 12px 20px;
   border-radius: 20px;
@@ -74,7 +73,7 @@
   font-size: 1rem;
 }
 
-.inputBox label {
+.registro-contenedor .inputBox label {
   position: absolute;
   top: 50%;
   left: 20px;
@@ -85,13 +84,13 @@
   transition: 0.3s ease;
 }
 
-.inputBox input:focus,
-.inputBox input:valid {
+.registro-contenedor .inputBox input:focus,
+.registro-contenedor .inputBox input:valid {
   border-color: #faaf21;
 }
 
-.inputBox input:focus + label,
-.inputBox input:valid + label {
+.registro-contenedor .inputBox input:focus + label,
+.registro-contenedor .inputBox input:valid + label {
   top: -10px;
   left: 25px;
   background-color: #3b3b3b;
@@ -101,14 +100,13 @@
   color: #fff;
 }
 
-/* Botón */
-.btn-registrarse-contenedor {
+.registro-contenedor .btn-registrarse-contenedor {
   display: flex;
   justify-content: center;
   margin-top: 10px;
 }
 
-.btn-registrarse-contenedor button {
+.registro-contenedor .btn-registrarse-contenedor button {
   padding: 10px 25px;
   border: none;
   border-radius: 10px;
@@ -119,35 +117,49 @@
   transition: 0.3s;
 }
 
-.btn-registrarse-contenedor button:hover {
+.registro-contenedor .btn-registrarse-contenedor button:hover {
   background-color: #ff9b6d;
   color: #333;
 }
 
-/* Enlaces inferiores */
-.a-iniciar-contenedor {
+.registro-contenedor .a-iniciar-contenedor {
   display: flex;
   justify-content: space-between;
   margin-top: 15px;
   font-size: 0.95rem;
 }
 
-.a-iniciar-contenedor a {
+.registro-contenedor .a-iniciar-contenedor a {
   color: #faaf21;
   text-decoration: none;
 }
 
-.a-iniciar-contenedor a:hover {
+.registro-contenedor .a-iniciar-contenedor a:hover {
   text-decoration: underline;
 }
 
-/* Imagen derecha */
-.img-registrarse-contenedor {
+.registro-contenedor .img-registrarse-contenedor {
   width: 45%;
 }
 
-.img-registrarse-contenedor img {
+.registro-contenedor .img-registrarse-contenedor img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+@media (max-width: 992px) {
+  .registro-contenedor .registrarse {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .registro-contenedor .registrarse-inputs {
+    width: 100%;
+    padding: 30px;
+  }
+
+  .registro-contenedor .img-registrarse-contenedor {
+    display: none;
+  }
 }
