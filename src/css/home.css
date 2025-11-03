@@ -1,16 +1,14 @@
 /* Fondo de la página */
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Rubik", sans-serif;
-    font-optical-sizing: auto;
+    font-family: "Poppins", sans-serif;
     font-weight: 300;
     font-style: normal;
-
 }
 
 
@@ -49,6 +47,7 @@
     background-color: #EB6424;
     border-radius: 10px;
 }
+
 
 
 
@@ -141,6 +140,7 @@ h1, p {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 180px 200px;
     gap: 15px;
+    padding: 0px 25px;
     width: 100%;
 }
 
@@ -184,13 +184,22 @@ h1, p {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-end;
-    padding-left: 20px;
+    padding-left: 10px;
     gap: 10px;
-    font-size: 20px;
     opacity: 0;
     transition: opacity 0.5s ease;
     transition: transform 0.1s ease;
     transform: translateY(100%);
+}
+
+.info-contenedor > h2 {
+    font-size: 40px;
+    padding: 10px;
+}
+
+.info-contenedor > p {
+    padding: 0px 12px 0px 10px;
+    font-size: 17px;
 }
 
 .overlay h2 {
@@ -411,7 +420,7 @@ section {
     justify-content: center;
     align-items: center;
     background-color: #dfdfdf79;
-    background-image: url(../Imagenes/home/lineas2.png);
+    background-image: url(../assets/home/lineas2.png);
     background-size: 100% 100%;
 }
 
@@ -550,6 +559,7 @@ section {
 }
 
 .info-container {
+    display: flex;
     width: 450px;
     height: 130px;
     background-color: #BABD8D;
@@ -620,9 +630,10 @@ section {
 
 .brg-info p{
     color: #333334;
-    font-size: auto;
+    font-size: 14px;
     text-align: start;
     transform: translate(-20px, 10px);
+    font-weight: bold;
 }
 
 
@@ -822,7 +833,7 @@ footer {
 
     .comentarios-contenedor {
         background-color: #dfdfdf79;
-        background-image: url(../Imagenes/home/lineas-comentarios.png);
+        background-image: url(../assets/home/lineas-comentarios.png);
         background-size: cover cover;
         background-repeat: no-repeat;
     }
@@ -908,7 +919,7 @@ footer {
 
     .comentarios-contenedor {
         background-color: #dfdfdf79;
-        background-image: url(../Imagenes/home/lineas-comentarios.png);
+        background-image: url(../assets/home/lineas-comentarios.png);
         background-size: cover cover;
         background-repeat: no-repeat;
     }
@@ -970,7 +981,7 @@ footer {
 
     .comentarios-contenedor {
         background-color: #dfdfdf79;
-        background-image: url(../Imagenes/home/lineas-comentarios.png);
+        background-image: url(../asssets/home/lineas-comentarios.png);
         background-size: cover cover;
         background-repeat: no-repeat;
     }

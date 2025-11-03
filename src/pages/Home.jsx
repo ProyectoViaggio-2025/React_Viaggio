@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "leaflet/dist/leaflet.css";
@@ -26,6 +27,12 @@ import parqueHeliosE from "../assets/home/parqueHeliosE.png";
 import Navbar from "../components/Navbar";
 
 export default function Home() {
+    const navigate = useNavigate();
+
+    function destinos() {
+        navigate("/destinos");
+    }
+
     useEffect(() => {
 
         // === LEAFLET MAP ===
@@ -115,6 +122,7 @@ export default function Home() {
             const placeholder = document.createElement("div");
             placeholder.classList.add("placeholder");
             placeholder.style.width = "50%";
+            placeholder.style.display = "inline-block";     
             placeholder.style.visibility = "hidden";
             zonaOrigen.replaceChild(placeholder, el);
             placeholder.dataset.placeholderFor = id;
@@ -127,8 +135,8 @@ export default function Home() {
             el.classList.add("en-dropzone");
 
             const data = itemData[id];
-const info = document.createElement("div");
-info.classList.add("brg-info");
+            const info = document.createElement("div");
+            info.classList.add("brg-info");
 
         // Clonar estrellas del elemento original
         const estrellas = el.querySelector(".drg-estrellas")
@@ -137,7 +145,6 @@ info.classList.add("brg-info");
 
         info.innerHTML = `
         <h3>${data.titulo}</h3>
-        ${estrellas}
         <p>"${data.descripcion}"</p>
         `;
 
@@ -150,6 +157,7 @@ info.classList.add("brg-info");
             close.style.background = "transparent";
             close.style.fontSize = "20px";
             close.style.cursor = "pointer";
+            close.style.zIndex = "999";
 
             close.addEventListener("click", () => {
                 cont.classList.remove("fade-in");
@@ -189,7 +197,7 @@ info.classList.add("brg-info");
                 <h1 className="display-3">Una mejor experiencia de turismo</h1>
                 <p className="fs-4">Tu itinerario personalizado a donde sea que vayas</p>
                 <div className="boton-contenedor">
-                <button className="btn-comenzar btn-lg">Comenzar</button>
+                <button onClick={destinos} className="btn-comenzar btn-lg">Comenzar</button>
                 </div>
             </div>
             </div>
@@ -208,28 +216,30 @@ info.classList.add("brg-info");
                 <img src={iglesiaSanJose} alt="Iglesia San José" />
                 <div className="info-contenedor">
                 <h2>Iglesia San José</h2>
-                <p>Iglesia principal de la ciudad, punto histórico y religioso.</p>
+                <p>Iglesia principal de la ciudad, punto de referencia histórico y religioso, con su arquitectura neogótica, declarado como patrimonio histórico local.</p>
                 </div>
             </div>
             <div className="img-card img-card-top">
                 <img src={laMaxima} alt="La Máxima" />
                 <div className="info-contenedor">
                 <h2>La Máxima</h2>
-                <p>Reserva natural con fauna local, senderos y espacios verdes.</p>
+                <p>Fauna local (Ciervos, aves, reptiles). Áreas verdes, juegos infantiles, parrilas.
+                Senderos para caminar y espacios recreativos.</p>
                 </div>
             </div>
             <div className="img-card margen-inferior img-card-bottom">
                 <img src={museoEmiliozzi} alt="Museo Emiliozzi" />
                 <div className="info-contenedor">
                 <h2>Museo Hnos. Emiliozzi</h2>
-                <p>Íconos del automovilismo argentino, con autos originales.</p>
+                <p>los corredos Juan y Dante Emiliozzi, íconos del automovilismo argentino.
+                    ubicaco en su antiguo taller. Autos originales (como la "Galera"), trofeos, herrmientas y documentos. Patrimonio automovilístico nacional.</p>
                 </div>
             </div>
             <div className="img-card margen-inferior img-card-bottom">
                 <img src={parqueMitre} alt="Parque Mitre" />
                 <div className="info-contenedor">
                 <h2>Parque Mitre</h2>
-                <p>Pulmón verde urbano con ferias y actividades recreativas.</p>
+                <p>Lugar de encuentro para caminatas, ferias y eventos, principal pulmón verde urbano y punto social de Olavarria, puentes, juegos y pista para correr o andar en bici</p>
                 </div>
             </div>
             </div>
@@ -301,9 +311,9 @@ info.classList.add("brg-info");
 
 
         {/*SOBRE VIAGGIO*/}
-        <div className="conte">
-            <div className="casa-contenedor container-fluid bg-dark">
-                <div className="info casi">
+        <div className="conte d-flex justify-content-center">
+            <div className="casa-contenedor bg-dark">
+                <div className="info casi container-fluid">
                     <div className="info-h3-p">
                         <h3>HOLA! ESTO ES VIAGGIO</h3>
                         <hr className="hr-sobreviaggio"/>
@@ -371,10 +381,44 @@ info.classList.add("brg-info");
             </div>
         </div>
 
+
+        {/* <!--COMENTARIOS SUELTOS PARA CELULAR--> */}
+        <div className="comentarios-contenedor container-fluid">
+            <div className="comentarios">
+                <div className="comentario">
+                <img className="" src={fotoVivi} alt=""/>
+                <h2>Vivi Blasco</h2>
+                <p>"¡Excelente página! Encontré todo lo que necesitaba para organizar mi escapada a Olavarría. Clara, rápida y muy visual."</p>
+                </div>
+                <div className="comentario">
+                <img className="" src={fotoSergio} alt=""/>
+                <h2>Sergio Garcia Retegui</h2>
+                <p>"¡Excelente página! Encontré todo lo que necesitaba para organizar mi escapada a Olavarría. Clara, rápida y muy visual."</p>
+                </div>
+                <div className="comentario">
+                <img className="" src={fotoCarolina} alt=""/>
+                <h2>Carolina Vasconcellos</h2>
+                <p>"¡Excelente página! Encontré todo lo que necesitaba para organizar mi escapada a Olavarría. Clara, rápida y muy visual."</p>
+                </div>
+                <div className="comentario">
+                <img className="jose-karen" src={joseMauricio} alt=""/>
+                <h2>Jose Mauricio</h2>
+                <p>"¡Excelente página! Encontré todo lo que necesitaba para organizar mi escapada a Olavarría. Clara, rápida y muy visual."</p>
+                </div>
+                <div className="comentario">
+                <img className="jose-karen" src={karenSimari} alt=""/>
+                <h2>Karen Simari</h2>
+                <p>"¡Excelente página! Encontré todo lo que necesitaba para organizar mi escapada a Olavarría. Clara, rápida y muy visual."</p>
+                </div>
+            </div>
+        </div>
+    
+
+
         {/* CARRUSEL */}
-        <div className="carousel-contenedor container-fluid">
+        <div className="carousel-contenedor">
             <div className="carrusel">
-            <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
+            <div id="carouselExampleCaptions" className="carousel slide " data-bs-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active ">
                         <img src={centroCultural} className="d-block w-100" alt="Centro Cultural" />

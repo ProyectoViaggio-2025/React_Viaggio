@@ -14,6 +14,13 @@
   color: white;
 }
 
+.nav-link:hover{
+  color: #eb6424;
+}
+
+.nav-link {
+  color: #eb6424;
+}
 
 .navbar-ul-contenedor ul {
   gap: 30px;
