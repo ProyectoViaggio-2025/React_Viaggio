@@ -18,7 +18,7 @@ export default function SobreViaggio() {
       <div className="container mt-5 mb-3">
         <div className="row d-flex align-items-center">
           <div className="col-12 col-lg-6 h-100">
-            <div className="info">
+            <div className="sobre-viaggio info">
               <h1 className="text-center text-lg-start">Somos Viaggio</h1>
               <p>
                 Nos mueve la pasión por facilitar experiencias de viaje

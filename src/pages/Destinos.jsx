@@ -1,6 +1,4 @@
 import "../css/destinos.css";
-import Navbar from "../components/Navbar.jsx";
-import Footer from "../components/Footer.jsx";
 import { useNavigate } from "react-router-dom";
 
 import Olavarria from "../assets/destinos/Olavarria.jpg";

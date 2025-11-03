@@ -1,7 +1,6 @@
 const ViajesRealizadosCard = ({ titulo, fecha, alojamiento, actividades }) => {
-  console.log(titulo, fecha, alojamiento, actividades)
   return (
-    <div className="card mb-3">
+    <div className="perfil-usuario card mb-3">
       <div className="card-body">
         <h5 className="card-title">{titulo}</h5>
         <p className="card-text">

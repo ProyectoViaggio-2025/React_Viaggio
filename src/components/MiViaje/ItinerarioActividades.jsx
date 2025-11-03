@@ -1,18 +1,20 @@
-import actividadesData from '../../data/actividadesData';
+import actividadesData from "../../data/actividadesData";
 
 function ItinerarioActividades({ itinerario }) {
   if (itinerario.length === 0) {
-    return <p className="text-center mt-4">No hay actividades en tu itinerario.</p>;
+    return (
+      <p className="text-center mt-4">No hay actividades en tu itinerario.</p>
+    );
   }
 
-  const actividadesSeleccionadas = actividadesData.filter(act =>
+  const actividadesSeleccionadas = actividadesData.filter((act) =>
     itinerario.includes(act.titulo)
   );
 
   return (
     <>
-      {actividadesSeleccionadas.map(actividad => (
-        <div key={actividad.titulo} className="card mb-3 actividades">
+      {actividadesSeleccionadas.map((actividad) => (
+        <div key={actividad.titulo} className="mi-viaje card mb-3">
           <div className="row align-items-center">
             <div className="col-md-8">
               <div className="card-body">

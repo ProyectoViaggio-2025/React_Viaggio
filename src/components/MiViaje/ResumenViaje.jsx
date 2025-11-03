@@ -15,7 +15,7 @@ function ResumenViaje() {
   return (
     <div>
       <h2 className="text-center mb-4">Alojamiento</h2>
-      <div className="card mb-4 shadow p-4" style={{ maxWidth: '480px', margin: '0 auto' }}>
+      <div className="mi-viaje card mb-4 shadow p-4" style={{ maxWidth: '480px', margin: '0 auto' }}>
         <h5 className="card-title text-center">{datosReserva.hotel}</h5>
         <img src={datosReserva.imagen} className="img-fluid rounded my-3" alt={datosReserva.hotel} />
         <p className="card-text"><strong>Destino:</strong> {datosReserva.ciudad}</p>

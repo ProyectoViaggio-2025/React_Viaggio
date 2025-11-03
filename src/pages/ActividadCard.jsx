@@ -1,6 +1,4 @@
-import React from "react";
 import "../css/actividades.css";
-
 
 export default function ActividadCard({ actividad, itinerario, setItinerario }) {
     const estaAgregada = itinerario.includes(actividad.titulo);
@@ -15,7 +13,7 @@ export default function ActividadCard({ actividad, itinerario, setItinerario }) 
 
     return (
         <div className="col-md-4">
-        <div className="card rounded-4 h-100 w-100">
+        <div className="actividades card rounded-4 h-100 w-100">
             <img
             src={actividad.imagen}
             className="card-img-top rounded-top-4 img-fluid"

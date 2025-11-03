@@ -5,9 +5,9 @@ function CardAlojamiento({ id, nombre, descripcion, imagen, seleccionado, onSele
 
   return (
     <div className="col-md-4 mb-4">
-      <div className={`card h-100 ${seleccionado ? 'seleccionada' : ''}`}>
+      <div className={`alojamientos card h-100 ${seleccionado ? 'seleccionada' : ''}`}>
         <img src={imagen} className="card-img-top" alt={nombre} />
-        <div className="card-body">
+        <div className="card-alojamiento card-body">
           <h5 className="card-title">{nombre}</h5>
           <p className="card-text">{descripcion}</p>
           <div className="d-flex justify-content-between">

@@ -1,38 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
-
-/* Estilos generales */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-main {
-  flex: 1;
-  background-color: #dfdfdf79;
-  background-image:url("\react\src\assets\alojamientos\PortadasHoteles\lineas-grise-dos.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
 
 .titulo-destino {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 2rem;
   text-align: center;
-  margin-bottom: 1.rem;
-  margin-top: 1.rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 /* Tarjetas de hoteles */
-.card {
+.alojamientos.card {
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -42,21 +20,15 @@ main {
   animation: fadeUp 0.6s ease-out forwards;
 }
 
-.card:hover {
+.alojamientos.card:hover {
   transform: scale(1.05);
 }
 
 .card.seleccionada {
-  border: 2px solid #EB6424;
-  box-shadow: 0px 0px 15px rgba(235, 100, 36, 0.5);
-}
-
-.card.seleccionada {
-  border: 2px solid #EB6424;
-  box-shadow:
-    0 0 10px rgba(202, 50, 3, 0.753),   /* sombra cálida */
-    0 0 20px rgba(226, 92, 2, 0.884),  /* halo suave */
-    0 0 35px rgba(233, 137, 28, 0.445);  /* resplandor más amplio */
+  border: 2px solid #eb6424;
+  box-shadow: 0 0 10px rgba(202, 50, 3, 0.753),
+    /* sombra cálida */ 0 0 20px rgba(226, 92, 2, 0.884),
+    /* halo suave */ 0 0 35px rgba(233, 137, 28, 0.445); /* resplandor más amplio */
 }
 
 @keyframes fadeUp {
@@ -66,39 +38,18 @@ main {
   }
 }
 
-.card-img-top {
+.alojamientos .card-img-top {
   height: 200px;
   object-fit: cover;
 }
 
-.card-body {
+.card-alojamiento.card-body {
   text-align: center;
-}
-
-.divSucursales,
-.divRedes {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 15px;
-  margin: 0 20px;
-}
-
-.divSucursales p {
-  margin: 5px 0;
-  line-height: 1.5;
-}
-
-/* Pantalla final oculta */
-.hola {
-  display: none;
 }
 
 /* Botón "Ver actividades" */
 #btn-ver-actividades {
-  background-color: #EB6424;
+  background-color: #eb6424;
   border: none;
   border-radius: 15px;
   color: #fff;
@@ -116,66 +67,15 @@ main {
   transform: scale(1.05);
 }
 
-/* Media queries */
-@media (max-width: 1000px) {
-  .columna-imagenes {
-    grid-template-columns: repeat(2, 2fr);
-  }
-
-  .columnas-imagenes-contenedor {
-    background-size: cover;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .columna-imagenes {
-    grid-template-columns: repeat(1, 2fr);
-  }
-
-  .columnas-imagenes-contenedor {
-    background-size: cover;
-  }
-
-  .divSucursales p {
-    font-size: 10px;
-  }
-
-  .divRedes a > img {
-    object-fit: contain;
-    width: 30px;
-  }
-}
-
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-  .divSucursales p {
-    font-size: 10px;
-  }
-
-  .divRedes {
-    flex-direction: column;
-  }
-
-  .divRedes a > img {
-    width: 30px;
-    object-fit: contain;
-  }
-
-  .columna-imagenes {
-    padding: 0;
-    padding-top: 50px;
-    row-gap: 50px;
-  }
-}
-
 /* Detalles de los alojamientos */
 .galeria {
   position: relative;
   display: grid;
-  grid-template-areas: 
-      "principal principal grid1"
-      "principal principal grid2"
-      "grid3 grid4 grid2"
-      "grid3 grid4 grid2";
+  grid-template-areas:
+    "principal principal grid1"
+    "principal principal grid2"
+    "grid3 grid4 grid2"
+    "grid3 grid4 grid2";
   grid-template-columns: 2fr 2fr 1fr;
   grid-template-rows: 150px 150px 100px;
   gap: 10px;
@@ -258,7 +158,8 @@ main {
   padding: 10px;
 }
 
-.servicios p, ul {
+.servicios p,
+ul {
   font-size: 18px;
 }
 
@@ -276,7 +177,7 @@ main {
   padding: 10px;
   border-radius: 10px;
   border: none;
-  background-color: #EB6424;
+  background-color: #eb6424;
   box-shadow: 3px 4px 5px 0px rgba(253, 165, 0, 0.75);
   color: white;
   cursor: pointer;

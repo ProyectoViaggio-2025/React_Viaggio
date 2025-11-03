@@ -3,8 +3,6 @@ import ResumenViaje from '../components/MiViaje/ResumenViaje';
 import ItinerarioActividades from '../components/miViaje/ItinerarioActividades';
 import MenuOrdenar from '../components/miViaje/MenuOrdenar';
 import BotonVolver from '../components/miViaje/BotonVolver';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 
 import '../css/miViaje.css';
 const filterIcon = "https://cdn-icons-png.flaticon.com/512/54/54481.png";

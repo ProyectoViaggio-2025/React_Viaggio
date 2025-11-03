@@ -4,8 +4,6 @@ import SelectorFechas from '../components/alojamientos/SelectorFechas';
 import Presupuesto from '../components/alojamientos/Presupuesto';
 import Alojamientos from '../components/alojamientos/Alojamientos';
 import ActividadesBoton from '../components/alojamientos/ActividadesBoton';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 
 import '../css/alojamientos.css';
 import fondoAlojamientos from '../assets/alojamientos/PortadasHoteles/lineas-grise-dos.svg';
