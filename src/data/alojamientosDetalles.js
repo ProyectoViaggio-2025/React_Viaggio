@@ -1,0 +1,165 @@
+// src/data/alojamientos.js
+import image1 from "../assets/alojamientos/PortadasHoteles/detallesImg/habitacion1.jpg";
+import image2 from "../assets/alojamientos/PortadasHoteles/detallesImg/habitacion2.webp";
+import image3 from "../assets/alojamientos/PortadasHoteles/detallesImg/habitacion3.jpg";
+import image4 from "../assets/alojamientos/PortadasHoteles/detallesImg/habitacion4.jpg";
+
+
+const alojamientosDetalles = [
+    {
+    id: 1,
+    nombre: "Hotel Argentino",
+    imagen: [
+        {url: image1},
+        {url: image2, "clases": "grid1"},
+        {url: image3, "clases": "grid2"},
+        {url: image4, "clases": "grid3"},
+        {url: image2, "clases": "grid4"}
+    ],
+    descripcion: "Hotel tradicional en pleno centro de Olavarría, ideal para viajes de trabajo o descanso.",
+    personas: 2,
+    precio: 16000,
+    ubicacion: "Av. Pringles 3001, Olavarría",
+    servicios: ["WiFi", "Desayuno incluido", "Estacionamiento", "TV por cable", "Aire acondicionado"],
+    puntuacion: 4.2
+},
+{
+    id: 2,
+    nombre: "Casa Josefina",
+    imagen: [
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/Casa_Josefina.png", "clases": "principal"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion3.jpg", "clases": "grid1"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion2.webp", "clases": "grid2"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion4.jpg", "clases": "grid3"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion1.jpg", "clases": "grid4"}
+    ],
+    descripcion: "Casa amplia y acogedora en zona residencial, perfecta para familias o grupos.",
+    personas: 6,
+    precio: 22000,
+    ubicacion: "Barrio Belgrano, Olavarría",
+    servicios: ["Parrilla", "Jardín", "Cocina equipada", "WiFi", "Cochera privada"],
+    puntuacion: 4.8
+},
+{
+    id: 3,
+    nombre: "Hotel Centenario",
+    imagen: [
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/Centenario.png", "clases": "principal"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion3.jpg", "clases": "grid1"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion2.webp", "clases": "grid2"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion4.jpg", "clases": "grid3"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion1.jpg", "clases": "grid4"}
+    ],
+    descripcion: "Moderno hotel 3 estrellas con excelente ubicación y atención personalizada.",
+    personas: 3,
+    precio: 18000,
+    ubicacion: "Gral. Paz 3009, Olavarría",
+    servicios: ["WiFi", "Recepción 24 hs", "Servicio a la habitación", "Bar", "Caja de seguridad"],
+    puntuacion: 3.0
+},
+{
+    id: 4,
+    nombre: "Hotel Demetrio",
+    imagen: [
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/Demetrio.png", "clases": "principal"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion3.jpg", "clases": "grid1"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion2.webp", "clases": "grid2"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion4.jpg", "clases": "grid3"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion1.jpg", "clases": "grid4"}
+    ],
+    descripcion: "Hotel boutique con diseño elegante y desayuno continental incluido.",
+    personas: 2,
+    precio: 19000,
+    ubicacion: "Av. Pringles 2985, Olavarría",
+    servicios: ["WiFi", "Desayuno buffet", "Smart TV", "Café-bar", "Room service"],
+    puntuacion: 4.7
+},
+{
+    id: 5,
+    nombre: "Hotel Riyak",
+    imagen: [
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/Riyak.png", "clases": "principal"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion3.jpg", "clases": "grid1"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion2.webp", "clases": "grid2"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion4.jpg", "clases": "grid3"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion1.jpg", "clases": "grid4"}
+    ],
+    descripcion: "Hotel con habitaciones amplias para parejas o grupos, cerca de la terminal.",
+    personas: 5,
+    precio: 21000,
+    ubicacion: "Av. Pringles 2575, Olavarría",
+    servicios: ["Estacionamiento gratuito", "WiFi", "TV por cable", "Desayuno", "Lavandería"],
+    puntuacion: 4.3
+},
+{
+    id: 6,
+    nombre: "Hotel Santa Rosa",
+    imagen: [
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/Santa_Rosa.png", "clases": "principal"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion3.jpg", "clases": "grid1"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion2.webp", "clases": "grid2"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion4.jpg", "clases": "grid3"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion1.jpg", "clases": "grid4"}
+    ],
+    descripcion: "Hotel 3★ superior con spa y gimnasio, ideal para descansar con comodidad.",
+    personas: 2,
+    precio: 25000,
+    ubicacion: "Vicente López 2956, Olavarría",
+    servicios: ["WiFi", "Spa", "Gimnasio", "Pileta climatizada", "Restaurante"],
+    puntuacion: 3
+},
+{
+    id: 7,
+    nombre: "Hotel Rex",
+    images: [
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/rex.jpg", "clases": "principal"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion3.jpg", "clases": "grid1"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion2.webp", "clases": "grid2"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion4.jpg", "clases": "grid3"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion1.jpg", "clases": "grid4"}
+    ],
+    descripcion: "Hotel económico con servicios básicos y ubicación céntrica.",
+    personas: 2,
+    precio: 13000,
+    ubicacion: "Av. Pringles 3215, Olavarría",
+    servicios: ["WiFi", "TV", "Estacionamiento"],
+    puntuacion: 3.8
+},
+{
+    id: 8,
+    nombre: "Hotel Olavarría",
+    imagen: [
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/HotelOlavarria.jpg", "clases": "principal"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion3.jpg", "clases": "grid1"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion2.webp", "clases": "grid2"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion4.jpg", "clases": "grid3"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion1.jpg", "clases": "grid4"}
+    ],
+    descripcion: "Alojamiento tradicional con restaurante propio y habitaciones familiares.",
+    personas: 4,
+    precio: 17000,
+    ubicacion: "Necochea 3050, Olavarría",
+    servicios: ["WiFi", "Desayuno", "Restaurante", "Cochera", "Sala de reuniones"],
+    puntuacion: 4.1
+},
+{
+    id: 9,
+    nombre: "Sky View",
+    imagen: [
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/skyView.jpg", "clases": "principal"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion3.jpg", "clases": "grid1"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion2.webp", "clases": "grid2"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion4.jpg", "clases": "grid3"},
+        {url: "../Imagenes/alojamientos/Portadas_ Hoteles/detallesImg/habitacion1.jpg", "clases": "grid4"}
+    ],
+    descripcion: "Apart hotel con departamentos equipados y vistas panorámicas a la ciudad.",
+    personas: 3,
+    precio: 20000,
+    ubicacion: "Moreno 3007, Olavarría",
+    servicios: ["Cocina completa", "Balcón", "WiFi", "Smart TV", "Aire acondicionado"],
+    puntuacion: 4.5
+}
+
+];
+
+export default alojamientosDetalles;

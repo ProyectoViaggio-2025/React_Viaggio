@@ -1,6 +1,15 @@
-function CardAlojamiento({ id, nombre, descripcion, imagen, seleccionado, onSeleccionar }) {
+import { useNavigate } from "react-router-dom";
+
+
+function CardAlojamiento({ id, nombre, descripcion, imagen, seleccionado, onSeleccionar, }) {
+  const navigate = useNavigate();
+
+  const handleVerMas = () => {
+    navigate(`/alojamientosDetalles/${id}`);
+  };
+
   const handleClick = () => {
-    onSeleccionar(seleccionado ? null : id);
+    onSeleccionar(seleccionado ? null : { id, nombre, descripcion, imagen });
   };
 
   return (
@@ -11,7 +20,7 @@ function CardAlojamiento({ id, nombre, descripcion, imagen, seleccionado, onSele
           <h5 className="card-title">{nombre}</h5>
           <p className="card-text">{descripcion}</p>
           <div className="d-flex justify-content-between">
-            <button className="btn btn-outline-primary btn-sm">
+            <button onClick={handleVerMas} className="btn btn-outline-primary btn-sm">
               Ver más
             </button>
             <button

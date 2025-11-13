@@ -1,31 +1,46 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import SelectorDestino from '../components/alojamientos/SelectorDestino';
 import SelectorFechas from '../components/alojamientos/SelectorFechas';
 import Presupuesto from '../components/alojamientos/Presupuesto';
 import Alojamientos from '../components/alojamientos/Alojamientos';
 import ActividadesBoton from '../components/alojamientos/ActividadesBoton';
 
+
 import '../css/alojamientos.css';
 import fondoAlojamientos from '../assets/alojamientos/PortadasHoteles/lineas-grise-dos.svg';
 
-import argentinoImg from '../assets/alojamientos/PortadasHoteles/Argentino.png';
-import casaJosefinaImg from '../assets/alojamientos/PortadasHoteles/Casa_Josefina.png';
-import centenarioImg from '../assets/alojamientos/PortadasHoteles/Centenario.png';
-import demetrioImg from '../assets/alojamientos/PortadasHoteles/Demetrio.png';
-import riyakImg from '../assets/alojamientos/PortadasHoteles/Riyak.png';
-import santaRosaImg from '../assets/alojamientos/PortadasHoteles/Santa_Rosa.png';
-import rexImg from '../assets/alojamientos/PortadasHoteles/rex.jpg';
-import olavarriaImg from '../assets/alojamientos/PortadasHoteles/HotelOlavarria.jpg';
-import skyViewImg from '../assets/alojamientos/PortadasHoteles/skyView.jpg';
 
 function PaginaAlojamientos() {
+  const [hoteles, setHoteles] = useState([]);
+  const [seleccionadoHoy, setSeleccionadoHoy] = useState(false);
+  const [alojamientoSeleccionado, setAlojamientoSeleccionado] = useState( JSON.parse(localStorage.getItem(`alojamientoSeleccionado`)) || null );
   const [ciudad, setCiudad] = useState('');
   const [fechaLlegada, setFechaLlegada] = useState('');
   const [fechaRegreso, setFechaRegreso] = useState('');
   const [presupuesto, setPresupuesto] = useState('');
   const [formularioIntentado, setFormularioIntentado] = useState(false);
   const [mostrarAlojamientos, setMostrarAlojamientos] = useState(false);
-  const [alojamientoSeleccionado, setAlojamientoSeleccionado] = useState(null);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/hoteles")
+      .then((res) => res.json())
+      .then((data) => setHoteles(data));
+  }, []);
+
+
+  const handleSeleccionar = (hotel) => {
+    if(!hotel) {
+      setAlojamientoSeleccionado(null);
+      localStorage.removeItem('alojamientoSeleccionado');
+      setSeleccionadoHoy(false);
+      return;
+    }
+
+    setAlojamientoSeleccionado(hotel);
+    localStorage.setItem('alojamientoSeleccionado', JSON.stringify(hotel));
+    setSeleccionadoHoy(true);
+  };
+
 
   const formularioValido = ciudad !== '' && fechaLlegada !== '';
 
@@ -40,17 +55,6 @@ function PaginaAlojamientos() {
     }
   };
 
-  const alojamientos = [
-    { id: 1, nombre: 'Hotel Argentino', descripcion: 'Ubicado en el centro, ideal para viajeros que buscan comodidad y cercanía.', imagen: argentinoImg },
-    { id: 2, nombre: 'Casa Josefina', descripcion: 'Alojamiento familiar con encanto local y atención personalizada.', imagen: casaJosefinaImg },
-    { id: 3, nombre: 'Hotel Centenario', descripcion: 'Elegancia clásica frente a espacios verdes, perfecto para descansar.', imagen: centenarioImg },
-    { id: 4, nombre: 'Hotel Demetrio', descripcion: 'Moderno y funcional, cerca de los principales puntos turísticos.', imagen: demetrioImg },
-    { id: 5, nombre: 'Hotel Riyak', descripcion: 'Estilo boutique con diseño contemporáneo y servicios premium.', imagen: riyakImg },
-    { id: 6, nombre: 'Hotel Santa Rosa', descripcion: 'Ambiente tranquilo y acogedor, ideal para escapadas relajantes.', imagen: santaRosaImg },
-    { id: 7, nombre: 'Hotel Rex', descripcion: 'Opción económica con excelente ubicación y atención cordial.', imagen: rexImg },
-    { id: 8, nombre: 'Hotel Olavarría', descripcion: 'Conectado con la historia local, frente al Parque Mitre.', imagen: olavarriaImg },
-    { id: 9, nombre: 'Sky View', descripcion: 'Vistas panorámicas y diseño minimalista para una experiencia única.', imagen: skyViewImg },
-  ];
 
   return (
     <>
@@ -85,13 +89,13 @@ function PaginaAlojamientos() {
 
           {mostrarAlojamientos && (
             <Alojamientos
-              alojamientos={alojamientos}
+              alojamientos={hoteles}
               alojamientoSeleccionado={alojamientoSeleccionado}
-              setAlojamientoSeleccionado={setAlojamientoSeleccionado}
+              onSeleccionar={handleSeleccionar}
             />
           )}
 
-          <ActividadesBoton visible={alojamientoSeleccionado != null} />
+          <ActividadesBoton visible={seleccionadoHoy}/>
         </div>
       </div>
     </>

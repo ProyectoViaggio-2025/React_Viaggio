@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "leaflet/dist/leaflet.css";
-import L from "leaflet";
+import MapaAlojamientos from "../components/MapaAlojamientos/MapaAlojamientos";
 import "../css/home.css";
 
 // 🖼️ Imágenes (importadas desde assets/home)
@@ -36,15 +36,7 @@ export default function Home() {
     useEffect(() => {
 
         // === LEAFLET MAP ===
-        const map = L.map("mapa").setView([-36.8933, -60.3225], 13);
-        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: "&copy; OpenStreetMap contributors",
-        }).addTo(map);
 
-    L.marker([-36.8933, -60.3225])
-      .addTo(map)
-      .bindPopup("Olavarría, Buenos Aires, Argentina")
-      .openPopup();
 
     // === PARALLAX ===
     const t1 = document.getElementById("parallax-texto");
@@ -384,7 +376,7 @@ export default function Home() {
       {/* MAPA */}
       <div className="mapa-contenedor">
         <h2 className="mx-5">Mapa de la ciudad</h2>
-        <div id="mapa" className="mapa"></div>
+        <MapaAlojamientos/>
       </div>
 
         {/* COMENTARIOS */}

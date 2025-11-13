@@ -1,8 +1,9 @@
 import CardAlojamiento from './CardAlojamiento';
+import { imagenesHoteles } from '../../data/imagenesHoteles';
 
-function Alojamientos({ alojamientos, alojamientoSeleccionado, setAlojamientoSeleccionado }) {
-  const handleSeleccionar = (id) => {
-    setAlojamientoSeleccionado(id);
+function Alojamientos({ alojamientos, alojamientoSeleccionado, onSeleccionar }) {
+  const handleSeleccionar = (hotel) => {
+    onSeleccionar(hotel);
   };
 
   return (
@@ -12,8 +13,11 @@ function Alojamientos({ alojamientos, alojamientoSeleccionado, setAlojamientoSel
         {alojamientos.map((a) => (
           <CardAlojamiento
             key={a.id}
-            {...a}
-            seleccionado={a.id === alojamientoSeleccionado}
+            id={a.id}
+            nombre = {a.nombre}
+            descripcion = {a.descripcion}
+            imagen={imagenesHoteles[a.imagenUrl]}
+            seleccionado={alojamientoSeleccionado?.id === a.id}
             onSeleccionar={handleSeleccionar}
           />
         ))}

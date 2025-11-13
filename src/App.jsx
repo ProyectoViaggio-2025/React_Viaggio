@@ -5,6 +5,7 @@ import Registro from "./pages/Registro.jsx";
 import Navbar from "./components/Navbar.jsx";
 import MiViaje from "./pages/MiViaje.jsx";
 import Login from "./pages/Login.jsx";
+import AlojamientoDetalle from "./components/alojamientos/AlojamientoDetalles.jsx";
 
 
 import PaginaAlojamientos from "./pages/PaginaAlojamientos.jsx";
@@ -34,6 +35,7 @@ export default function App() {
         <Route path="/sobreViaggio" element={<SobreViaggio />} />
         <Route path="/miViaje" element={<MiViaje />} />
         <Route path="/perfilUsuario" element={<PerfilUsuario />} />
+        <Route path="/alojamientosDetalles/:id" element={<AlojamientoDetalle />} />
       </Routes>
       {!shouldHideLayout && <Footer />}
     </>

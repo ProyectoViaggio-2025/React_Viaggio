@@ -10,10 +10,16 @@ const filterIcon = "https://cdn-icons-png.flaticon.com/512/54/54481.png";
 function MiViaje() {
   const [mostrarMenu, setMostrarMenu] = useState(false);
   const [itinerario, setItinerario] = useState([]);
+  const [alojamiento, setAlojamiento] = useState(null);
 
   useEffect(() => {
     const actividadesGuardadas = JSON.parse(localStorage.getItem('itinerario')) || [];
     setItinerario(actividadesGuardadas);
+
+    const alojamientoGuardado = JSON.parse(localStorage.getItem(`alojamientoSeleccionado`));
+    if(alojamientoGuardado) {
+      setAlojamiento(alojamientoGuardado);
+    }
   }, []);
 
   const toggleMenu = () => setMostrarMenu(prev => !prev);
@@ -26,6 +32,20 @@ function MiViaje() {
         <h1 className="mb-4">Mi viaje</h1>
         <div className="row">
           <div className="col-12 col-lg-3 col-md-4">
+
+          {/*MOATRAR ALOJAMIENTOS */}
+          {alojamiento ? (
+            <div className="card mb-4 p-3">
+              <h4 className='fw-bold'>Alojamiento</h4>
+              <p className='mb-1'>{alojamiento.nombre}</p>
+              <img src={alojamiento.imagen} className='img-fluid rounded' alt="" />
+            </div>
+          ) : (
+            <p className='text-muted'>No seleccionaste alojamiento</p>
+          )}
+
+
+
             <ResumenViaje />
           </div>
           <div className="col-12 col-lg-8 col-md-7 ms-auto">
