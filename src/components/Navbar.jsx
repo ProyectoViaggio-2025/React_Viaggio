@@ -1,50 +1,94 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../css/navbar.css";
-
+import { useAuth } from "../context/AuthContext";
 
 export default function Navbar() {
-    return (
-            <nav
-                className="navbar-contenedor container-fluid navbar-expand-lg"
-                id="mainNavbar"
-            >
-                <div className="navbar container">
-                    <Link className="a-logo navbar-brand" to="*">
-                        <img src="/src/assets/home/logo.svg" alt="logo" />
-                    </Link>
-                    <button
-                        className="navbar-toggler"
-                        id="navbarToggler"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarNav"
-                    >
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div
-                        className="navbar-ul-contenedor collapse navbar-collapse"
-                        id="navbarNav"
-                    >
-                        <ul className="navbar-nav ms-auto">
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/destinos">
-                            Destinos
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/sobreViaggio">
-                            Sobre Viaggio
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="btn-registrate nav-link text-white" to="/register">
-                            Registrarse
-                            </Link>
-                        </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
-    );
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
+
+  return (
+    <nav className="navbar-contenedor container-fluid navbar-expand-lg" id="mainNavbar">
+      <div className="navbar container">
+        {/* Logo */}
+        <Link className="a-logo navbar-brand" to="/">
+          <img src="/src/assets/home/logo.svg" alt="logo" height="50" />
+        </Link>
+
+        {/* Botón responsive */}
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="navbar-ul-contenedor collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul className="navbar-nav align-items-center">
+            <li className="nav-item">
+              <Link className="nav-link" to="/destinos">
+                Destinos
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/sobreViaggio">
+                Sobre Viaggio
+              </Link>
+            </li>
+
+            {/* Usuario */}
+            {!user ? (
+              <li className="nav-item">
+                <Link className="btn-registrate nav-link text-white" to="/register">
+                  Registrarse
+                </Link>
+              </li>
+            ) : (
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle d-flex align-items-center"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                >
+                  <img
+                    src="/src/assets/perfilUsuario/fotoperfil.jpg" 
+                    alt="Usuario"
+                    className="rounded-circle"
+                    width="35"
+                    height="35"
+                  />
+                </a>
+                <ul className="dropdown-menu dropdown-menu-end">
+                  <li>
+                    <Link className="dropdown-item" to="/perfil">
+                      Mi perfil
+                    </Link>
+                  </li>
+                  <li>
+                    <hr className="dropdown-divider" />
+                  </li>
+                  <li>
+                    <button
+                      className="dropdown-item"
+                      onClick={handleLogout}
+                      style={{ cursor: "pointer" }}
+                    >
+                      Cerrar sesión
+                    </button>
+                  </li>
+                </ul>
+              </li>
+            )}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
 }

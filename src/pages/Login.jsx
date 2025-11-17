@@ -3,11 +3,13 @@ import Swal from "sweetalert2";
 import { useNavigate, Link } from "react-router-dom";
 import "../css/login.css";
 import imgRegistro from "../assets/registrarse/img-registrarse.png";
+import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [contraseña, setContraseña] = useState("");
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,21 +20,24 @@ const Login = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/usuarios");
-      const usuarios = await response.json();
+      const response = await fetch("http://localhost:3000/usuarios/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password: contraseña }),
+      });
 
-      const usuario = usuarios.find(
-        (u) => u.email === email && u.password === contraseña
-      );
-
-      if (!usuario) {
-        Swal.fire("Error", "Correo o contraseña incorrectos", "error");
+      if (!response.ok) {
+        const err = await response.json();
+        Swal.fire("Error", err.message || "Correo o contraseña incorrectos", "error");
         return;
       }
 
+      const data = await response.json();
+      login(data); // guarda user + token
+
       Swal.fire({
         icon: "success",
-        title: `¡Bienvenido/a, ${usuario.nombre}!`,
+        title: `¡Bienvenido/a, ${data.user.nombre}!`,
         text: "Inicio de sesión exitoso",
         confirmButtonText: "Entrar",
       }).then(() => {
