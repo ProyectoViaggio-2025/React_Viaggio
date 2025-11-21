@@ -9,7 +9,7 @@ function ResumenViaje() {
   }, []);
 
   if (!datosReserva) {
-    return <p className="text-center mt-4">No hay información de alojamiento seleccionada.</p>;
+    return <p className="text-center mt-4"></p>;
   }
 
   return (
