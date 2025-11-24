@@ -3,6 +3,7 @@ import ResumenViaje from '../components/MiViaje/ResumenViaje';
 import ItinerarioActividades from '../components/miViaje/ItinerarioActividades';
 import MenuOrdenar from '../components/miViaje/MenuOrdenar';
 import BotonVolver from '../components/miViaje/BotonVolver';
+import { jwtDecode } from "jwt-decode"; // ⚠️ IMPORTANTE
 
 import '../css/miViaje.css';
 const filterIcon = "https://cdn-icons-png.flaticon.com/512/54/54481.png";
@@ -35,22 +36,28 @@ function MiViaje() {
     setCargando(true);
 
     try {
+      // Obtener token
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert("Necesitas iniciar sesión para reservar.");
+        return;
+      }
+
+      // Decodificar token para obtener el userId
+      const decoded = jwtDecode(token);
+      const userId = decoded.sub; // <-- ID REAL DEL USUARIO
+
       // DTO que espera el backend
       const reservaDTO = {
         ciudad: alojamiento.ciudad || "Sin ciudad",
         fechaLlegada: alojamiento.fechaInicio || new Date().toISOString(),
         fechaRegreso: alojamiento.fechaFin || null,
         hotelId: alojamiento.id,
-        usuarioId: 1, // hay que eemplazar con ID del usuario del token
-        //actividadIds: itinerario.map(a => a.id),
+        usuarioId: userId,  // <-- LISTO
         actividadIds: itinerario
-  .map(a => Number(a.id))
-  .filter(id => !isNaN(id)) // <- esto descarta cualquier NaN
-
+          .map(a => Number(a.id))
+          .filter(id => !isNaN(id))
       };
-
-      // Token del usuario logeado
-      const token = localStorage.getItem('token');
 
       // Guardar reserva
       const resCrear = await fetch('http://localhost:3000/reservas', {
@@ -83,10 +90,6 @@ function MiViaje() {
       }
 
       alert('¡Reserva confirmada! Revisá tu correo.');
-
-      // Opcional: limpiar viaje
-      // localStorage.removeItem('itinerario');
-      // localStorage.removeItem('alojamientoSeleccionado');
 
     } catch (error) {
       console.error('Error al enviar la reserva:', error);
@@ -137,7 +140,6 @@ function MiViaje() {
       <BotonVolver />
     </>
   );
-  
 }
 
 export default MiViaje;
