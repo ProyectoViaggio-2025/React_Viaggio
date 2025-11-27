@@ -141,14 +141,25 @@
   color: white;
   border: none;
   border-radius: 8px;
-  padding: 0.8rem;
+  padding: 8px;
   cursor: pointer;
   font-weight: 600;
   transition: background 0.3s ease;
+  margin: 0;
 }
 
 .btn-reserve:hover {
-  background: #e04c50;
+  background: #e06a34;
+}
+
+.btn-reserve:active {
+  border: none;
+}
+
+.btn-reserve > p {
+  font-size: 20px;
+  color: #fff;
+  margin: 0;
 }
 
 .no-charges {

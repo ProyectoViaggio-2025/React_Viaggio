@@ -18,6 +18,9 @@ function AlojamientoDetalle() {
   const { user } = useAuth();
   const [editandoId, setEditandoId] = useState(null);
   const [mensajeEditado, setMensajeEditado] = useState("");
+  const [fechaLlegada, setFechaLlegada] = useState(localStorage.getItem("fechaLlegada") || "");
+  const [fechaRegreso, setFechaRegreso] = useState(localStorage.getItem("fechaRegreso") || "");
+
 
 
   // ---------------------------
@@ -112,6 +115,20 @@ function AlojamientoDetalle() {
 
 
   if (!hotel) return <p>Cargando...</p>;
+
+  
+
+  const calcularNoches = () => {
+    if (!fechaLlegada || !fechaRegreso) return 0;
+    const inicio = new Date(fechaLlegada);
+    const fin = new Date(fechaRegreso);
+    const diff = fin - inicio;
+    const noches = diff / (1000 * 60 * 60 * 24);
+    return noches > 0 ? noches : 0;
+  };
+
+  const totalEstadia = calcularNoches() * (hotel?.precio || 0);
+
 
 
   const enviarComentario = async () => {
@@ -303,8 +320,26 @@ function AlojamientoDetalle() {
 
             <div className="reserva-form">
               <div className="input-group">
-                <input type="date" />
-                <input type="date" />
+                <label>Fecha de llegada:</label>
+                <input
+                  type="date"
+                  value={fechaLlegada}
+                  onChange={(e) => {
+                    setFechaLlegada(e.target.value);
+                    localStorage.setItem("fechaLlegada", e.target.value);
+                  }}
+                />
+
+                <label>Fecha de regreso:</label>
+                <input
+                  type="date"
+                  value={fechaRegreso}
+                  onChange={(e) => {
+                    setFechaRegreso(e.target.value);
+                    localStorage.setItem("fechaRegreso", e.target.value);
+                  }}
+                />
+
               </div>
 
               <select>
@@ -314,8 +349,12 @@ function AlojamientoDetalle() {
               </select>
 
               <button className="btn-reserve">
-                Reservar ${hotel.precio}
+                {fechaLlegada && fechaRegreso && (
+                    <p className="btn"><strong>Reservar </strong>${totalEstadia}</p>
+                )}
               </button>
+
+
             </div>
 
             <p className="no-charges">No se realiza ningún cargo aún</p>

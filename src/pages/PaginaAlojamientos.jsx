@@ -30,8 +30,8 @@ function PaginaAlojamientos() {
     JSON.parse(localStorage.getItem(`alojamientoSeleccionado`)) || null
   );
   const [ciudad, setCiudad] = useState('Olavarría'); // Ciudad por defecto
-  const [fechaLlegada, setFechaLlegada] = useState('');
-  const [fechaRegreso, setFechaRegreso] = useState('');
+  const [fechaLlegada, setFechaLlegada] = useState(localStorage.getItem("fechaLlegada") || '');
+  const [fechaRegreso, setFechaRegreso] = useState(localStorage.getItem("fechaRegreso") || '');
   const [presupuesto, setPresupuesto] = useState('');
   const [formularioIntentado, setFormularioIntentado] = useState(false);
   const [mostrarAlojamientos, setMostrarAlojamientos] = useState(false);
@@ -41,6 +41,15 @@ function PaginaAlojamientos() {
 
 
 
+
+  useEffect(() => {
+    if (fechaLlegada) {
+      localStorage.setItem("fechaLlegada", fechaLlegada);
+    }
+    if (fechaRegreso) {
+      localStorage.setItem("fechaRegreso", fechaRegreso);
+    }
+  }, [fechaLlegada, fechaRegreso]);
 
 
   // Cargar hoteles desde backend
@@ -114,6 +123,7 @@ function PaginaAlojamientos() {
       }, 100);
     }
   };
+
 
   return (
     <div
