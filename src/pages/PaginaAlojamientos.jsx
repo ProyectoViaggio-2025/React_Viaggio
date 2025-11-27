@@ -18,7 +18,7 @@ function PaginaAlojamientos() {
   const [alojamientoSeleccionado, setAlojamientoSeleccionado] = useState(
     JSON.parse(localStorage.getItem(`alojamientoSeleccionado`)) || null
   );
-  const [ciudad, setCiudad] = useState('');
+  const [ciudad, setCiudad] = useState('Olavarría'); // Ciudad por defecto
   const [fechaLlegada, setFechaLlegada] = useState('');
   const [fechaRegreso, setFechaRegreso] = useState('');
   const [presupuesto, setPresupuesto] = useState('');
@@ -28,15 +28,26 @@ function PaginaAlojamientos() {
   const navigate = useNavigate();
   const { user } = useAuth();
 
+  // Cargar hoteles desde backend
   useEffect(() => {
     fetch("http://localhost:3000/hoteles")
       .then((res) => res.json())
       .then((data) => setHoteles(data));
   }, []);
 
-  const handleSeleccionar = (hotel) => {
+  // Guardar ciudad y fechas automáticamente en localStorage
+  useEffect(() => {
+    const alojamientoGuardado = JSON.parse(localStorage.getItem('alojamientoSeleccionado')) || {};
+    localStorage.setItem('alojamientoSeleccionado', JSON.stringify({
+      ...alojamientoGuardado,
+      ciudad: ciudad || 'Olavarría',
+      fechaLlegada: fechaLlegada || null,
+      fechaRegreso: fechaRegreso || null
+    }));
+  }, [ciudad, fechaLlegada, fechaRegreso]);
 
-    // 🔒 SI NO ESTÁ LOGEADO → cartel + redirección
+  const handleSeleccionar = (hotel) => {
+    // 🔒 Si no está logeado → cartel + redirección
     if (!user) {
       Swal.fire({
         icon: "info",
@@ -58,9 +69,14 @@ function PaginaAlojamientos() {
       return;
     }
 
-    // Si está logeado → guardar selección
+    // Guardar selección de alojamiento con ciudad y fechas
     setAlojamientoSeleccionado(hotel);
-    localStorage.setItem('alojamientoSeleccionado', JSON.stringify(hotel));
+    localStorage.setItem('alojamientoSeleccionado', JSON.stringify({
+      ...hotel,
+      ciudad: ciudad || 'Olavarría',
+      fechaLlegada: fechaLlegada || null,
+      fechaRegreso: fechaRegreso || null
+    }));
     setSeleccionadoHoy(true);
   };
 
@@ -83,58 +99,56 @@ function PaginaAlojamientos() {
   };
 
   return (
-    <>
-      <div
-        style={{
-          backgroundImage: `url(${fondoAlojamientos})`,
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          minHeight: '100vh',
-        }}
-      >
-        <div className="container mb-5">
-          <h2 className="titulo-destino">Elige tu destino</h2>
+    <div
+      style={{
+        backgroundImage: `url(${fondoAlojamientos})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        minHeight: '100vh',
+      }}
+    >
+      <div className="container mb-5">
+        <h2 className="titulo-destino">Elige tu destino</h2>
 
-          <SelectorDestino
-            ciudad={ciudad}
-            setCiudad={setCiudad}
-            formularioIntentado={formularioIntentado}
+        <SelectorDestino
+          ciudad={ciudad}
+          setCiudad={setCiudad}
+          formularioIntentado={formularioIntentado}
+        />
+
+        <SelectorFechas
+          fechaLlegada={fechaLlegada}
+          setFechaLlegada={setFechaLlegada}
+          fechaRegreso={fechaRegreso}
+          setFechaRegreso={setFechaRegreso}
+          formularioIntentado={formularioIntentado}
+        />
+
+        <Presupuesto
+          presupuesto={presupuesto}
+          setPresupuesto={setPresupuesto}
+        />
+
+        <button
+          className="btn btn-continuar-alojamiento btn-warning btn-lg mt-4"
+          onClick={handleContinuar}
+          disabled={!formularioValido}
+        >
+          Continuar
+        </button>
+
+        {mostrarAlojamientos && (
+          <Alojamientos
+            alojamientos={hotelesFiltrados}
+            alojamientoSeleccionado={alojamientoSeleccionado}
+            onSeleccionar={handleSeleccionar}
           />
+        )}
 
-          <SelectorFechas
-            fechaLlegada={fechaLlegada}
-            setFechaLlegada={setFechaLlegada}
-            fechaRegreso={fechaRegreso}
-            setFechaRegreso={setFechaRegreso}
-            formularioIntentado={formularioIntentado}
-          />
-
-          <Presupuesto
-            presupuesto={presupuesto}
-            setPresupuesto={setPresupuesto}
-          />
-
-          <button
-            className="btn btn-continuar-alojamiento btn-warning btn-lg mt-4"
-            onClick={handleContinuar}
-            disabled={!formularioValido}
-          >
-            Continuar
-          </button>
-
-          {mostrarAlojamientos && (
-            <Alojamientos
-              alojamientos={hotelesFiltrados}
-              alojamientoSeleccionado={alojamientoSeleccionado}
-              onSeleccionar={handleSeleccionar}
-            />
-          )}
-
-          <ActividadesBoton visible={seleccionadoHoy} />
-        </div>
+        <ActividadesBoton visible={seleccionadoHoy} />
       </div>
-    </>
+    </div>
   );
 }
 
