@@ -3,7 +3,7 @@ import ResumenViaje from '../components/MiViaje/ResumenViaje';
 import ItinerarioActividades from '../components/miViaje/ItinerarioActividades';
 import MenuOrdenar from '../components/miViaje/MenuOrdenar';
 import BotonVolver from '../components/miViaje/BotonVolver';
-import { jwtDecode } from "jwt-decode"; // ⚠️ IMPORTANTE
+import { jwtDecode } from "jwt-decode";
 
 import '../css/miViaje.css';
 const filterIcon = "https://cdn-icons-png.flaticon.com/512/54/54481.png";
@@ -40,24 +40,30 @@ function MiViaje() {
       const token = localStorage.getItem('token');
       if (!token) {
         alert("Necesitas iniciar sesión para reservar.");
+        setCargando(false);
         return;
       }
 
       // Decodificar token para obtener el userId
       const decoded = jwtDecode(token);
-      const userId = decoded.sub; // <-- ID REAL DEL USUARIO
+      const userId = decoded.sub;
 
-      // DTO que espera el backend
+      // DTO que espera el backend (con corrección de fechas para zona horaria)
+      const fechaLlegadaISO = new Date(alojamiento.fechaLlegada + 'T00:00:00').toISOString();
+      const fechaRegresoISO = alojamiento.fechaRegreso 
+        ? new Date(alojamiento.fechaRegreso + 'T00:00:00').toISOString()
+        : null;
+
       const reservaDTO = {
         ciudad: alojamiento.ciudad || "Sin ciudad",
-        fechaLlegada: alojamiento.fechaInicio || new Date().toISOString(),
-        fechaRegreso: alojamiento.fechaFin || null,
+        fechaLlegada: fechaLlegadaISO,
+        fechaRegreso: fechaRegresoISO,
         hotelId: alojamiento.id,
-        usuarioId: userId,  // <-- LISTO
-        actividadIds: itinerario
-          .map(a => Number(a.id))
-          .filter(id => !isNaN(id))
+        usuarioId: userId,
+        actividadIds: itinerario.map(a => Number(a.id)).filter(id => !isNaN(id))
       };
+
+      console.log('DTO a enviar:', reservaDTO); // Depuración
 
       // Guardar reserva
       const resCrear = await fetch('http://localhost:3000/reservas', {
