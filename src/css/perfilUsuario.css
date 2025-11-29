@@ -1,3 +1,7 @@
+.perfil {
+  min-height: 100vh;
+}
+
 .perfil-header {
   position: relative;
   margin-bottom: 50px;
@@ -25,4 +29,15 @@
 .navbar .dropdown-toggle img {
   object-fit: cover;
   border: 2px solid #fff;
+}
+
+.contador-badge {
+  background: #eef3ff;
+  border: 1px solid #cdd9ff;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: 400;
+  color: #2a4b8d;
+  display: inline-block;
+  margin-bottom: 0.5rem; 
 }

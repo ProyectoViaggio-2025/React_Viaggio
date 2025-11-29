@@ -1,6 +1,6 @@
 import PerfilHeader from "../components/PerfilUsuario/PerfilHeader";
 import PerfilTabs from "../components/PerfilUsuario/PerfilTabs";
-import "./../css/perfilUsuario.css"
+import "./../css/perfilUsuario.css";
 
 const PerfilUsuario = () => {
   return (

@@ -1,6 +1,6 @@
 import generarTextoFecha from "../../utils/generarTextoFecha";
 
-const ViajesRealizadosCard = ({ titulo, fecha, alojamiento, actividades }) => {
+const ViajeEnCursoCard = ({ titulo, fecha, alojamiento, actividades }) => {
   return (
     <div className="perfil-usuario card mb-3">
       <div className="card-body">
@@ -13,7 +13,9 @@ const ViajesRealizadosCard = ({ titulo, fecha, alojamiento, actividades }) => {
         </p>
         <p className="card-text">
           <strong>Actividades:</strong>{" "}
-          {actividades ? actividades.join(", ") : "No especificadas"}
+          {actividades && actividades.length > 0
+            ? actividades.join(", ")
+            : "No especificadas"}
         </p>
         <button className="btn btn-outline-primary btn-sm">Ver detalles</button>
       </div>
@@ -21,30 +23,33 @@ const ViajesRealizadosCard = ({ titulo, fecha, alojamiento, actividades }) => {
   );
 };
 
-const ViajesRealizados = ({ reservas }) => {
+const ViajeEnCurso = ({ reservas }) => {
   const fechaHoy = new Date();
 
-  const reservasCompletadas = reservas.filter((reserva) => {
-    if (!reserva.fechaRegreso) return false;
+  const reservaEnCurso = reservas.filter((reserva) => {
+    const llegada = new Date(reserva.fechaLlegada);
+    const regreso = reserva.fechaRegreso
+      ? new Date(reserva.fechaRegreso)
+      : null;
 
-    const fechaRegreso = new Date(reserva.fechaRegreso);
+    const yaEmpezo = llegada <= fechaHoy;
+    const noTermino = regreso === null || regreso >= fechaHoy;
 
-    return fechaRegreso < fechaHoy;
+    return yaEmpezo && noTermino;
   });
 
   return (
-    <div className="tab-pane" id="realizados" role="tabpanel">
-
-      {reservasCompletadas.length === 0 ? (
-        <p>No tenés viajes completados.</p>
+    <div className="tab-pane fade show active" id="enCurso" role="tabpanel">
+      {reservaEnCurso.length === 0 ? (
+        <p>No tenes viajes en curso.</p>
       ) : (
-        reservasCompletadas.map((reserva) => {
-          const actividadesString = reserva.actividades
-            ?.map((actividad) => actividad.titulo)
-            .join(", ");
+        reservaEnCurso.map((reserva) => {
+          const actividadesArray = reserva.actividades?.map(
+            (actividad) => actividad.titulo
+          );
 
           return (
-            <ViajesRealizadosCard
+            <ViajeEnCursoCard
               key={reserva.idReserva}
               titulo={`Viaje a ${reserva.ciudad}`}
               fecha={generarTextoFecha(
@@ -52,7 +57,7 @@ const ViajesRealizados = ({ reservas }) => {
                 reserva.fechaRegreso
               )}
               alojamiento={reserva.hotel.nombre}
-              actividades={actividadesString}
+              actividades={actividadesArray}
             />
           );
         })
@@ -61,4 +66,4 @@ const ViajesRealizados = ({ reservas }) => {
   );
 };
 
-export default ViajesRealizados;
+export default ViajeEnCurso;

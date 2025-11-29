@@ -3,26 +3,20 @@ const TabsNav = ({ setSelectedTab, selectedTab }) => {
     <nav role="tablist">
       <ul className="nav nav-tabs justify-content-center mt-4" id="perfilTabs">
         <TabsNavItem
-          title={"Viajes Planeados"}
+          title={"Viaje en curso"}
+          id={"enCurso-tab"}
+          setSelectedTab={setSelectedTab}
+          selectedTab={selectedTab}
+        />
+        <TabsNavItem
+          title={"Viajes planeados"}
           id={"planeados-tab"}
           setSelectedTab={setSelectedTab}
           selectedTab={selectedTab}
         />
         <TabsNavItem
-          title={"Viajes Realizados"}
+          title={"Viajes realizados"}
           id={"realizados-tab"}
-          setSelectedTab={setSelectedTab}
-          selectedTab={selectedTab}
-        />
-        <TabsNavItem
-          title={"Deseados"}
-          id={"deseados-tab"}
-          setSelectedTab={setSelectedTab}
-          selectedTab={selectedTab}
-        />
-        <TabsNavItem
-          title={"Favoritos"}
-          id={"favoritos-tab"}
           setSelectedTab={setSelectedTab}
           selectedTab={selectedTab}
         />

@@ -3,7 +3,7 @@ import TabContent from "./TabContent";
 import { useState } from "react";
 
 const PerfilTabs = () => {
-  const [selectedTab, setSelectedTab] = useState("planeados-tab");
+  const [selectedTab, setSelectedTab] = useState("enCurso-tab");
 
   return (
     <>
