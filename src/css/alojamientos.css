@@ -201,14 +201,7 @@ ul {
   margin-bottom: 20px;
 }
 
-.admin-action button {
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  background-color: #FA9500;
-  color: #fff;
-  font-size: 18px;
-}
+
 
 /*MODAL PARA AGREGAR ALOJAMIENTOS*/
 .modal-overlay {
@@ -271,4 +264,49 @@ ul {
   padding: 10px;
   border: none;
   border-radius: 5px;
+}
+
+.boton1{
+  background-color: #56a74b;
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+}
+.boton2 {
+  background-color: #e4cd00;
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.boton3 {
+  background-color: #ff5411;
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.boton1:hover {
+  background-color: #7ce96e;
+}
+
+.boton2:hover {
+  background-color: #d6c845; 
+}
+
+.boton3:hover {
+  background-color: #fa7c4a;
 }

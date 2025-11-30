@@ -405,6 +405,8 @@ function AlojamientoDetalle() {
                   }).then((result) => {
                     if (result.isConfirmed) {
                       navigate("/actividades");
+                    } else {
+                      navigate("/miViaje");
                     }
                   });
                 }}

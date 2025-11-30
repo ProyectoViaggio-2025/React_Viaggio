@@ -5,6 +5,17 @@
   object-fit: contain;
 }
 
+.form-agregarActividad {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+}
+
+.form-agregarActividad label {
+  font-weight: 600;
+}
+
 /* Ajuste del botón "Registrarse" */
 .nav-link.btn-warning {
   border-radius: 5px;
@@ -18,30 +29,6 @@
   margin-top: 30px;
 }
 
-#btnFiltrar {
-  margin-left: auto;
-  margin-right: 20px;
-  display: block;
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  padding: 8px 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#btnFiltrar:hover {
-  background-color: #ff8c00; /* Naranja al pasar el mouse */
-  color: white;
-}
-
-#btnFiltrar img {
-  width: 20px;
-  height: 20px;
-}
 
 .menu-filtros {
   position: fixed;
@@ -55,28 +42,10 @@
   z-index: 1000;
 }
 
-#btnCerrarFiltros {
-  margin-top: 10px;
-  background-color: #f57c00;
-  border: none;
-  color: white;
-  padding: 6px 12px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
 
-#btnCerrarFiltros:hover {
-  background-color: #ef6c00;
-}
-
-#contenedor-tarjetas {
-  max-width: 80%;
-}
 
 .actividades.card button {
-  background-color: #f57c00;
+  background-color: #ff5411;
   color: #fff;
 
   &:hover {
@@ -123,16 +92,33 @@
 
 .contbotones {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-bottom: 15px;
   margin-left: 20px;
   margin-right: 20px;
+  padding: 0px 200px ;
 }
 
 .boton1,
+.boton2,
+.boton3 {
+  font-weight: 600;
+}
+
+.boton1{
+  background-color: #56a74b;
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+}
 .boton2 {
-  background-color: orange;
+  background-color: #e4cd00;
   color: white;
   border: none;
   border-radius: 2rem;
@@ -142,8 +128,37 @@
   transition: background-color 0.3s;
 }
 
-.boton1:hover,
-.boton2:hover {
-  background-color: rgb(201, 130, 0);
+.boton3 {
+  background-color: #ff5411;
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
+.boton1:hover {
+  background-color: #7ce96e;
+}
+
+.boton2:hover {
+  background-color: #d6c845; 
+}
+
+.boton3:hover {
+  background-color: #fa7c4a;
+}
+
+
+.boton {
+  background-color: #ff5411;
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}

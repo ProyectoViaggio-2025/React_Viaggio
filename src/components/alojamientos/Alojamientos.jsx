@@ -148,6 +148,7 @@ function Alojamientos({ alojamientos, alojamientoSeleccionado, onSeleccionar }) 
               setDeleteMode(false);
               setShowForm(true);
             }}
+            className='boton1'
           >
             Agregar alojamiento
           </button>
@@ -157,11 +158,12 @@ function Alojamientos({ alojamientos, alojamientoSeleccionado, onSeleccionar }) 
             setEditMode(!editMode);
             setDeleteMode(false);
             setShowForm(false);
-            }}>
+            }} className='boton2'>
+
               {editMode ? "Cancelar edición" : "Modificar alojamiento"}
           </button>
 
-          <button onClick={() => setDeleteMode(!deleteMode)}>
+          <button onClick={() => setDeleteMode(!deleteMode)} className='boton3'>
             {deleteMode ? "Cancelar eliminación" : "Borrar alojamiento"}
           </button>
 

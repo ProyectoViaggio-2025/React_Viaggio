@@ -157,39 +157,43 @@ export default function Actividades() {
         =========================== */}
         {isAdmin && (
             <div className="contbotones mt-4">
-            <button
-                className="boton1"
-                onClick={() => {
-                limpiarForm();
-                setEditMode(false);
-                setDeleteMode(false);
-                setShowForm(true);
-                }}
-            >
-                Agregar actividad
-            </button>
-
-            <button
-                className="boton1"
-                onClick={() => {
-                setEditMode(!editMode);
-                setDeleteMode(false);
-                setShowForm(false);
-                }}
-            >
-                {editMode ? "Cancelar edición" : "Modificar actividad"}
-            </button>
-
-            <button
-                className="boton2"
-                onClick={() => {
-                setDeleteMode(!deleteMode);
-                setEditMode(false);
-                setShowForm(false);
-                }}
-            >
-                {deleteMode ? "Cancelar eliminación" : "Eliminar actividad"}
-            </button>
+                <div>
+                    <button
+                        className="boton1"
+                        onClick={() => {
+                        limpiarForm();
+                        setEditMode(false);
+                        setDeleteMode(false);
+                        setShowForm(true);
+                        }}
+                    >
+                        Agregar actividad
+                    </button>
+                </div>
+                <div>
+                    <button
+                        className="boton2"
+                        onClick={() => {
+                        setEditMode(!editMode);
+                        setDeleteMode(false);
+                        setShowForm(false);
+                        }}
+                    >
+                        {editMode ? "Cancelar edición" : "Modificar actividad"}
+                    </button>
+                </div>
+                <div>
+                    <button
+                        className="boton3"
+                        onClick={() => {
+                        setDeleteMode(!deleteMode);
+                        setEditMode(false);
+                        setShowForm(false);
+                        }}
+                    >
+                        {deleteMode ? "Cancelar eliminación" : "Eliminar actividad"}
+                    </button>
+                </div>
             </div>
         )}
 
@@ -198,50 +202,50 @@ export default function Actividades() {
         =========================== */}
         {showForm && (
             <div className="modal-overlay">
-            <div className="modal-content">
-                <h2>{actividadEditada ? "Modificar actividad" : "Nueva actividad"}</h2>
+                <div className="modal-content">
+                    <h2>{actividadEditada ? "Modificar actividad" : "Nueva actividad"}</h2>
 
-                <form className="form-agregarAlojamiento" onSubmit={handleSubmit}>
-                <label>Título</label>
-                <input
-                    type="text"
-                    value={titulo}
-                    onChange={(e) => setTitulo(e.target.value)}
-                    required
-                />
+                    <form className="form-agregarActividad" onSubmit={handleSubmit}>
+                        <label>Título</label>
+                        <input
+                            type="text"
+                            value={titulo}
+                            onChange={(e) => setTitulo(e.target.value)}
+                            required
+                        />
 
-                <label>Descripción</label>
-                <textarea
-                    value={descripcion}
-                    onChange={(e) => setDescripcion(e.target.value)}
-                    required
-                ></textarea>
+                        <label>Descripción</label>
+                        <textarea
+                            value={descripcion}
+                            onChange={(e) => setDescripcion(e.target.value)}
+                            required
+                        ></textarea>
 
-                <label>URL Imagen (Cloudinary)</label>
-                <input
-                    type="text"
-                    value={imagenUrl}
-                    onChange={(e) => setImagenUrl(e.target.value)}
-                    required
-                />
+                        <label>URL Imagen (Cloudinary)</label>
+                        <input
+                            type="text"
+                            value={imagenUrl}
+                            onChange={(e) => setImagenUrl(e.target.value)}
+                            required
+                        />
 
-                <div className="btns-modal">
-                    <button type="submit" className="btn-guardar">
-                    Guardar
-                    </button>
-                    <button
-                    type="button"
-                    className="btn-cancelar"
-                    onClick={() => {
-                        limpiarForm();
-                        setShowForm(false);
-                    }}
-                    >
-                    Cancelar
-                    </button>
+                        <div className="btns-modal">
+                            <button type="submit" className="btn-guardar">
+                            Guardar
+                            </button>
+                            <button
+                            type="button"
+                            className="btn-cancelar"
+                            onClick={() => {
+                                limpiarForm();
+                                setShowForm(false);
+                            }}
+                            >
+                            Cancelar
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                </form>
-            </div>
             </div>
         )}
 
@@ -251,7 +255,7 @@ export default function Actividades() {
         <div className="d-flex align-items-center justify-content-center">
             <div className="m-4 row gy-5 gx-5 align-items-stretch">
             {actividades
-                .filter(a => a.id)               // 💥 solo actividades válidas
+                .filter(a => a.id)               //  solo actividades válidas
                 .slice(0, actividadesMostradas)
                 .map((act) => (
                 <ActividadCard
@@ -281,10 +285,10 @@ export default function Actividades() {
 
         {/* Botones extra */}
         <div className="contbotones">
-            <a href="/alojamientos" className="boton1">
+            <a href="/alojamientos" className="boton">
             Volver
             </a>
-            <a href="/miViaje" className="boton2">
+            <a href="/miViaje" className="boton">
             Ir a Mi viaje
             </a>
         </div>

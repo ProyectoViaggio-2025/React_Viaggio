@@ -50,60 +50,7 @@
   object-fit: cover;
 }
 
-/* MENÚ ORDENAR */
-#btnOrdenar {
-  position: absolute;
-  top: 90px;
-  right: 20px;
-  z-index: 1001;
-  background-color: white;
-  border: 2px solid #000;
-  border-radius: 20px;
-  padding: 8px 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
 
-#btnOrdenar:hover {
-  background-color: #ff8c00;
-  color: white;
-}
-
-#btnOrdenar img {
-  width: 20px;
-  height: 20px;
-}
-
-.menu-ordenar {
-  position: absolute;
-  top: 140px;
-  right: 20px;
-  background-color: white;
-  padding: 15px 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  width: 220px;
-  z-index: 1000;
-}
-
-#btnCerrarOrdenar {
-  margin-top: 10px;
-  background-color: #f57c00;
-  border: none;
-  color: white;
-  padding: 6px 12px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
-
-#btnCerrarOrdenar:hover {
-  background-color: #ef6c00;
-}
 
 /* BOTÓN VOLVER */
 .contbotones {
@@ -113,7 +60,18 @@
   margin: 0 20px 15px 20px;
 }
 
+.btn-reservar {
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  padding: 5px;
+  font-weight: 500;
+  background-color: #3e8b4e;
+}
 
+.btn-reservar:hover {
+  background-color: #57a366;
+}
 
 
 

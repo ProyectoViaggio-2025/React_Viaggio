@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import ResumenViaje from '../components/MiViaje/ResumenViaje';
-import ItinerarioActividades from '../components/miViaje/ItinerarioActividades';
-import MenuOrdenar from '../components/miViaje/MenuOrdenar';
-import BotonVolver from '../components/miViaje/BotonVolver';
+import ItinerarioActividades from '../components/MiViaje/ItinerarioActividades';
+import BotonVolver from '../components/MiViaje/BotonVolver';
 import { jwtDecode } from "jwt-decode";
 
 import '../css/miViaje.css';
@@ -127,6 +126,7 @@ function MiViaje() {
             <h2 className="text-md-end text-center pe-md-5">Actividades</h2>
             <ItinerarioActividades itinerario={itinerario} />
             <button
+              className='btn-reservar'
               id="btnReservar"
               onClick={reservarViaje}
               disabled={cargando}
@@ -136,10 +136,6 @@ function MiViaje() {
           </div>
         </div>
       </div>
-
-      <button id="btnOrdenar" onClick={toggleMenu}>
-        <img src={filterIcon} alt="Ordenar" /> Ordenar
-      </button>
 
       {mostrarMenu && <MenuOrdenar cerrarMenu={cerrarMenu} />}
 

@@ -29,8 +29,8 @@ import Navbar from "../components/Navbar";
 export default function Home() {
     const navigate = useNavigate();
 
-    function destinos() {
-        navigate("/destinos");
+    function alojamientos() {
+        navigate("/alojamientos");
     }
 
     useEffect(() => {
@@ -172,7 +172,7 @@ export default function Home() {
                 <h1 className="display-3">Una mejor experiencia de turismo</h1>
                 <p className="fs-4">Tu itinerario personalizado a donde sea que vayas</p>
                 <div className="boton-contenedor">
-                <button onClick={destinos} className="btn-comenzar btn-lg">Comenzar</button>
+                <button onClick={alojamientos} className="btn-comenzar btn-lg">Comenzar</button>
                 </div>
             </div>
             </div>
