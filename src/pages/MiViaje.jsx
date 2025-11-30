@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import ResumenViaje from '../components/MiViaje/ResumenViaje';
-import ItinerarioActividades from '../components/miViaje/ItinerarioActividades';
-import MenuOrdenar from '../components/miViaje/MenuOrdenar';
-import BotonVolver from '../components/miViaje/BotonVolver';
+import ItinerarioActividades from '../components/MiViaje/ItinerarioActividades';
+import BotonVolver from '../components/MiViaje/BotonVolver';
 import { jwtDecode } from "jwt-decode";
 
 import '../css/miViaje.css';
@@ -136,10 +135,6 @@ function MiViaje() {
           </div>
         </div>
       </div>
-
-      <button id="btnOrdenar" onClick={toggleMenu}>
-        <img src={filterIcon} alt="Ordenar" /> Ordenar
-      </button>
 
       {mostrarMenu && <MenuOrdenar cerrarMenu={cerrarMenu} />}
 
