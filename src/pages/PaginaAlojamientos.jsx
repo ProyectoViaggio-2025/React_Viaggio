@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import Swal from 'sweetalert2';
 import { useLocation } from 'react-router-dom';
+import API from "../config/api"
 
 import SelectorDestino from '../components/alojamientos/SelectorDestino';
 import SelectorFechas from '../components/alojamientos/SelectorFechas';
@@ -54,7 +55,7 @@ function PaginaAlojamientos() {
 
   // Cargar hoteles desde backend
   useEffect(() => {
-    fetch("http://localhost:3000/hoteles")
+    fetch(`${API}/hoteles`)
       .then((res) => res.json())
       .then((data) => setHoteles(data));
   }, []);

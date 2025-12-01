@@ -12,6 +12,7 @@ import alojamientoMapa from "../../data/alojamientosMapa";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import Swal from "sweetalert2";
+import API from "../../config/api";
 
 
 function AlojamientoDetalle() {
@@ -55,7 +56,7 @@ function AlojamientoDetalle() {
       // 1) Intentar cargar datos del backend
       let backend = null;
       try {
-        const res = await fetch(`http://localhost:3000/hoteles/${id}`);
+        const res = await fetch(`${API}/hoteles/${id}`);
         if (res.ok) backend = await res.json();
       } catch (err) {
         console.error("Error backend:", err);
@@ -101,7 +102,7 @@ function AlojamientoDetalle() {
 
     async function cargarComentarios() {
       try {
-        const res = await fetch(`http://localhost:3000/comentarios/${id}`);
+        const res = await fetch(`${API}/comentarios/${id}`);
         if (res.ok) {
           const data = await res.json();
           setComentarios(data);
@@ -173,7 +174,7 @@ function AlojamientoDetalle() {
       return;
     }
 
-    const res = await fetch("http://localhost:3000/comentarios", {
+    const res = await fetch(`${API}/comentarios`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -197,7 +198,7 @@ function AlojamientoDetalle() {
     if (!confirmar) return;
 
     const res = await fetch(
-      `http://localhost:3000/comentarios/${comentarioId}`,
+      `${API}/comentarios/${comentarioId}`,
       {
         method: "DELETE",
       }
@@ -228,7 +229,7 @@ function AlojamientoDetalle() {
     }
 
     const res = await fetch(
-      `http://localhost:3000/comentarios/${comentarioId}`,
+      `${API}/comentarios/${comentarioId}`,
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
