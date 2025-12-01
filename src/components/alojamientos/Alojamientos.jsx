@@ -106,6 +106,7 @@ function Alojamientos({ alojamientos, alojamientoSeleccionado, onSeleccionar }) 
 
     if(!confirmar) return;
 
+    
     const res = await fetch(`${API}/hoteles/${id}`, {
       method: "DELETE",
     });
