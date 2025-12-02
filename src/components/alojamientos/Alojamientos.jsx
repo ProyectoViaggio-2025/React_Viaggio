@@ -71,7 +71,7 @@ function Alojamientos({ alojamientos, alojamientoSeleccionado, onSeleccionar }) 
       servicios,
     };
 
-    let url = "http://localhost:3000/hoteles";
+    let url = `${API}/hoteles`;
     let method = "POST";
 
     //SI ESTAMOS EDITANDO USAR PUT
