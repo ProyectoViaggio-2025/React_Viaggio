@@ -4,11 +4,6 @@
   object-fit: cover;
 }
 
-.a-logo img {
-  width: 150px;
-  object-fit: cover;
-}
-
 /*card destinos*/
 .columnas-imagenes-contenedor {
   width: 100%;

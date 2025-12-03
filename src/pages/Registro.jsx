@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import { useNavigate, Link } from 'react-router-dom';
 import '../css/FormularioRegistro.css';
+import '../css/form.css'
 import imgRegistro from '../assets/registrarse/img-registrarse.png';
 import API from "../config/api";
 

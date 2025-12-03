@@ -1,0 +1,26 @@
+.inputBox input {
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 20px;
+  border: 2px solid #999;
+  background-color: transparent;
+  color: #fff;
+  outline: none;
+  font-size: 1rem;
+}
+
+.inputBox input:focus,
+.inputBox input:valid {
+  border-color: #faaf21;
+}
+
+.inputBox input:focus + label,
+.inputBox input:valid + label {
+  top: -10px;
+  left: 25px;
+  background-color: #3b3b3b; 
+  padding: 0 8px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  color: #fff;
+}

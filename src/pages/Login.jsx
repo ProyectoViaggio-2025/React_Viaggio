@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { useNavigate, Link } from "react-router-dom";
 import "../css/login.css";
+import "../css/form.css"
 import imgRegistro from "../assets/registrarse/img-registrarse.png";
 import { useAuth } from "../context/AuthContext";
 import API from "../config/api"
@@ -73,7 +74,7 @@ const Login = () => {
           </div>
 
           <form className="login-form" onSubmit={handleSubmit}>
-            <div className="login-inputBox">
+            <div className="login-inputBox inputBox">
               <input
                 type="email"
                 value={email}
@@ -83,7 +84,7 @@ const Login = () => {
               <label className="login-label">Correo electrónico</label>
             </div>
 
-            <div className="login-inputBox">
+            <div className="login-inputBox inputBox">
               <input
                 type="password"
                 value={contraseña}

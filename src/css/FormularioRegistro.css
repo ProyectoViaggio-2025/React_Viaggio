@@ -70,16 +70,6 @@
   margin-bottom: 20px;
 }
 
-.registro-contenedor .inputBox input {
-  width: 100%;
-  padding: 12px 20px;
-  border-radius: 20px;
-  border: 2px solid #999;
-  background-color: transparent;
-  color: #fff;
-  outline: none;
-  font-size: 1rem;
-}
 
 .registro-contenedor .inputBox label {
   position: absolute;
@@ -90,22 +80,6 @@
   font-size: 0.95rem;
   pointer-events: none;
   transition: 0.3s ease;
-}
-
-.registro-contenedor .inputBox input:focus,
-.registro-contenedor .inputBox input:valid {
-  border-color: #faaf21;
-}
-
-.registro-contenedor .inputBox input:focus + label,
-.registro-contenedor .inputBox input:valid + label {
-  top: -10px;
-  left: 25px;
-  background-color: #3b3b3b;
-  padding: 0 8px;
-  border-radius: 10px;
-  font-size: 0.8rem;
-  color: #fff;
 }
 
 .registro-contenedor .btn-registrarse-contenedor {
@@ -171,3 +145,5 @@
     display: none;
   }
 }
+
+

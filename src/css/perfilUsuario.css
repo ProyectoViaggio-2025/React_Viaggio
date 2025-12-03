@@ -20,6 +20,10 @@
   font-weight: bold;
 }
 
+.PerfilUsuarioNavLink {
+  color: #ff8c42;
+}
+
 .perfil-usuario.card {
   border-radius: 15px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);

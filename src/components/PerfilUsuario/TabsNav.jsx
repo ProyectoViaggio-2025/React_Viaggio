@@ -30,7 +30,7 @@ const TabsNavItem = ({ title, id, selectedTab, setSelectedTab }) => {
     <li className="nav-item" role="presentation">
       <button
         onClick={() => setSelectedTab(id)}
-        className={`nav-link ${selectedTab === id ? "active" : ""}`}
+        className={`nav-link PerfilUsuarioNavLink ${selectedTab === id ? "active" : ""}`}
         id={id}
         data-bs-toggle="tab"
         type="button"
