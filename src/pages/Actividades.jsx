@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import ActividadCard from "./ActividadCard.jsx";
 import "../css/actividades.css";
+import "../css/botones.css"
 import { useAuth } from "../context/AuthContext.jsx";
 import { useLocation } from "react-router-dom";
 import { useRef } from "react";

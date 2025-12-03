@@ -12,6 +12,7 @@ import Alojamientos from '../components/alojamientos/Alojamientos';
 import ActividadesBoton from '../components/alojamientos/ActividadesBoton';
 
 import '../css/alojamientos.css';
+import '../css/botones.css'
 import fondoAlojamientos from '../assets/alojamientos/PortadasHoteles/lineas-grise-dos.svg';
 
 function PaginaAlojamientos() {
