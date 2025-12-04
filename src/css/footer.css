@@ -89,22 +89,17 @@ footer {
     object-fit: contain;
   }
 }
-/* --------------------- RESPONSIVE --------------------- */
+
+
 @media (max-width: 768px) {
+
   footer {
-    flex-direction: column;
+    padding: 20px;
     height: auto;
-    padding: 40px 20px;
-    text-align: center;
-    gap: 25px;
   }
 
   .logoFooter {
     width: 120px;
-  }
-
-  .divSucursales {
-    margin: 0;
   }
 
   .divSucursales p {
@@ -112,22 +107,22 @@ footer {
   }
 
   .divRedes {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 15px;
     height: auto;
     margin-top: 10px;
   }
 
   .logosRedes {
-    width: 40px;
-    height: 40px;
+    width: 40px !important;
+    height: 40px !important;
   }
 }
 
-/* ----------- Extra small (celulares muy chicos) ----------- */
 @media (max-width: 480px) {
+
+  footer {
+    padding: 15px;
+  }
+
   .logoFooter {
     width: 100px;
   }
@@ -136,15 +131,8 @@ footer {
     font-size: 11px;
   }
 
-  .divRedes {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
   .logosRedes {
-    width: 32px;
-    height: 32px;
+    width: 32px !important;
+    height: 32px !important;
   }
 }
-
