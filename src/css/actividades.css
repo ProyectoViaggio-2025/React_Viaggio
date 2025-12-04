@@ -104,23 +104,32 @@
   cursor: pointer;
   transition: background-color 0.3s;
 }
-/* RESPONSIVE SOLO PARA MOBILE */
-@media (max-width: 768px) {
+/* SOLO para pantallas chicas */
+@media (max-width: 600px) {
 
-  /* Botones de admin que se salen */
-  .contbotones {
-    padding: 0 10px !important;
-    flex-wrap: wrap;
-    gap: 10px;
+  /* Botones volver / ver mi viaje */
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.5rem;
   }
 
-  .contbotones button {
-    width: 100%;
+  .nav-buttons button {
+    flex: 0 0 auto; /* no ocupan todo el ancho */
+    width: auto;
   }
 
-  /* Botones inferiores (Volver / Mi viaje) */
-  .contbotones a.boton {
-    width: 100%;
-    text-align: center;
+  /* Botones del administrador */
+  .admin-buttons {
+    display: flex;
+    flex-wrap: nowrap;     /* evita que queden 2 arriba y 1 abajo */
+    overflow-x: auto;      /* agrega scroll horizontal si no entran */
+    gap: 0.5rem;
+  }
+
+  .admin-buttons button {
+    flex: 0 0 auto;         /* no se estiran ni se vuelven enormes */
+    white-space: nowrap;    /* evita que se partan */
   }
 }
