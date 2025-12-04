@@ -14,7 +14,7 @@ function CardAlojamiento({ id, nombre, descripcion, imagen, precio, estrellas, s
   };
 
   return (
-    <div className="col-md-4 mb-4">
+    <div className="col-lg-4 col-md-6 mb-4">
       <div className={`alojamientos card h-100 ${seleccionado ? 'seleccionada' : ''}`}>
         <div className="img-container">
             <img src={imagen} className="card-img-top" alt={nombre} />

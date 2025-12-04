@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../css/navbar.css";
 import { useAuth } from "../context/AuthContext";
 import logo from "../../src/assets/home/logo.svg";
+import logoUsuario from "../../src/assets/perfilUsuario/fotoperfil.jpg";
 
 export default function Navbar() {
   const { user, logout } = useAuth();
@@ -68,7 +69,7 @@ export default function Navbar() {
                   data-bs-toggle="dropdown"
                 >
                   <img
-                    src="/src/assets/perfilUsuario/fotoperfil.jpg"
+                    src={logoUsuario}
                     alt="Usuario"
                     className="rounded-circle"
                     width="35"
@@ -77,7 +78,10 @@ export default function Navbar() {
                 </a>
                 <ul className="dropdown-menu dropdown-menu-end">
                   <li>
-                    <Link className="Nav-bar-dropdown-item dropdown-item" to="/perfilUsuario">
+                    <Link
+                      className="Nav-bar-dropdown-item dropdown-item"
+                      to="/perfilUsuario"
+                    >
                       Mi perfil
                     </Link>
                   </li>

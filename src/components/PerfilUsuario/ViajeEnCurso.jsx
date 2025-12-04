@@ -46,7 +46,6 @@ const ViajeEnCurso = ({ reservas }) => {
           const actividadesArray = reserva.actividades?.map(
             (actividad) => actividad.titulo
           );
-          console.log(reserva.idReserva);
           return (
             <ViajeEnCursoCard
               key={reserva.idReserva}
