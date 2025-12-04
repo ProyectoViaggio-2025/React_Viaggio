@@ -116,20 +116,20 @@
   }
 
   .nav-buttons button {
-    flex: 0 0 auto; /* no ocupan todo el ancho */
+    flex: 0 0 auto; 
     width: auto;
   }
 
   /* Botones del administrador */
   .admin-buttons {
     display: flex;
-    flex-wrap: nowrap;     /* evita que queden 2 arriba y 1 abajo */
-    overflow-x: auto;      /* agrega scroll horizontal si no entran */
+    flex-wrap: nowrap;     
+    overflow-x: auto;      
     gap: 0.5rem;
   }
 
   .admin-buttons button {
-    flex: 0 0 auto;         /* no se estiran ni se vuelven enormes */
-    white-space: nowrap;    /* evita que se partan */
+    flex: 0 0 auto;        
+    white-space: nowrap;   
   }
 }
